@@ -1,3 +1,7 @@
 class Location < ActiveRecord::Base
+
+  belongs_to :neighborhood
+  has_many :meetup_locs
+
   attr_accessible :city, :latitude, :longitude, :name, :neighborhood_id, :state, :street_address, :zip
 end
