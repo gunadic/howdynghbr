@@ -8,7 +8,7 @@ FactoryGirl.define do
     email "MyString"
     tag_line "MyString"
     short_bio "MyText"
-    location "MyText"
+    position "MyText"
     fave_category_id 1
   end
 end
