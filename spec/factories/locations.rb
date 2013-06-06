@@ -7,8 +7,8 @@ FactoryGirl.define do
     city ""
     state "MyString"
     zip 1
-    latitude "MyString"
-    longitude "MyString"
+    latitude 1.1
+    longitude 1.1
     neighborhood_id 1
   end
 end
