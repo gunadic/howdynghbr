@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_one :favorite_category
   
   attr_accessible :email, :fave_category_id, :first_name, :last_name, :location, 
-  :short_bio, :tag_line, :user_name
+  :short_bio, :tag_line, :user_name, :id
 
   validates_presence_of :user_name
   validates_uniqueness_of :user_name
