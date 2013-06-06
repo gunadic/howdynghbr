@@ -12,4 +12,5 @@ describe Meetup do
     expect(temp2.meetup_loc.location).to eql(loc)
   end
 
+
 end

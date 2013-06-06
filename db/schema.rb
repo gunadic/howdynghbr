@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606131236) do
+ActiveRecord::Schema.define(:version => 20130606213458) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(:version => 20130606131236) do
     t.string   "city"
     t.string   "state"
     t.integer  "zip"
-    t.string   "latitude"
-    t.string   "longitude"
     t.integer  "neighborhood_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "meetup_locs", :force => true do |t|
