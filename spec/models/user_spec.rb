@@ -24,7 +24,6 @@ describe User do
     user = FactoryGirl.create(:user)
     temp = FactoryGirl.create(:participation, :user_id => user.id)
     review = FactoryGirl.create(:review, :participation_id => temp.id)
-    binding.pry
     expect(user.reviews).to include(review)
   end
 

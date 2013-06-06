@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :meetup_loc do
-    location_id "MyString"
-    meetup_id "MyString"
+    location_id 1
+    meetup_id 1
   end
 end
