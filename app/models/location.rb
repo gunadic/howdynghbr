@@ -8,8 +8,7 @@ class Location < ActiveRecord::Base
     :state, :street_address, :zip
 
   geocoded_by :full_address
-  after_validation :geocode, :if => address_changed?
-
+  after_validation :geocode
   def full_address
     [name, street_address, city, state, zip].join(" ")
   end

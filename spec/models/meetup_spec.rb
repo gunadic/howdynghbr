@@ -1,8 +1,14 @@
 require 'spec_helper'
 
 describe Meetup do
+  # shoulda-matchers tests
+  it {should have_one(:meetup_loc)}
+  it {should have_many(:participations)}
+  it {should have_many(:reviews).through(:participations)}
+  it {should belong_to(:category)}
+  it {should belong_to(:user)}
 
-  describe "associations tests" do
+  describe "actual associations tests tests" do
     it "has a meetup_loc" do
       temp1 = FactoryGirl.build(:meetup_loc)
       temp2 = FactoryGirl.create(:meetup)

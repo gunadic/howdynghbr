@@ -28,7 +28,10 @@ group :test, :development do
   gem 'pry'
   gem 'capybara'
   gem 'factory_girl_rails'
+end
 
+group :test do
+  gem 'shoulda-matchers'
 end
 
 

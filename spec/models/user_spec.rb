@@ -4,7 +4,13 @@ describe User do
 
   it "must have a unique user name" do
     FactoryGirl.create(:user)
-    temp = FactoryGirl.build(:user)
+    temp = FactoryGirl.build(:user, :email => "notdefault@factory.com")
+    expect(temp.valid?).to eql(false)
+  end
+
+  it "must have a unique email address" do
+    FactoryGirl.create(:user)
+    temp = FactoryGirl.build(:user, :user_name => "temp1")
     expect(temp.valid?).to eql(false)
   end
 
