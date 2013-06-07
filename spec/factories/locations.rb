@@ -3,12 +3,10 @@
 FactoryGirl.define do
   factory :location do
     name "MyString"
-    street_address "MyString"
-    city ""
-    state "MyString"
-    zip 1
-    latitude 1.1
-    longitude 1.1
+    street_address "337 Summer Street"
+    city "Boston"
+    state "MA"
+    zip "02445"
     neighborhood_id 1
   end
 end
