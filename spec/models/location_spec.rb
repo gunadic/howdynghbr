@@ -9,10 +9,11 @@ describe Location do
 
   describe "validation tests" do
 
-    # it " expects a second location with identical .full_address values to be invalid" do
-    #   FactoryGirl.create(:location)
-    #   expect(FactoryGirl.build(:location)).to_not be_valid
-    # end
+    it " expects a second location with identical .full_address values to be invalid" do
+      loc = FactoryGirl.create(:location)
+      loc_clone = FactoryGirl.build(:location, street_address: loc.street_address)
+      expect(loc_clone).to_not be_valid
+    end
 
   end
 end
