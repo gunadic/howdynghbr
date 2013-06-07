@@ -12,4 +12,7 @@ class Location < ActiveRecord::Base
   def full_address
     [name, street_address, city, state, zip].join(" ")
   end
+  @temp = :full_address
+  validates_uniqueness_of @temp
+
 end

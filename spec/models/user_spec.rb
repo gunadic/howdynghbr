@@ -2,6 +2,14 @@ require 'spec_helper'
 require 'pry'
 describe User do
 
+  describe "shoulda tests" do
+    it{ should have_many(:meetups)}
+    it{ should have_many(:participations)}
+    it{ should have_many(:reviews).through(:participations)}
+    it{ should have_one(:favorite_category)}
+  end
+
+
   it "must have a unique user name" do
     FactoryGirl.create(:user)
     temp = FactoryGirl.build(:user, :email => "notdefault@factory.com")
@@ -16,7 +24,7 @@ describe User do
 
   it "has participations" do
     user = FactoryGirl.create(:user)
-    temp = FactoryGirl.create(:participation, :user_id => user.id)
+    FactoryGirl.create(:participation, :user_id => user.id)
     expect(user.participations).to_not eql([])
   end
 

@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :meetup do
-    user_id 1
-    category_id 1
+    user
+    category
     meet_up_time "2013-06-02 18:35:53"
     is_past false
     description "MyText"

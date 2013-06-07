@@ -7,6 +7,7 @@ describe Meetup do
   it {should have_many(:reviews).through(:participations)}
   it {should belong_to(:category)}
   it {should belong_to(:user)}
+  it {should have_one(:location)}
 
   describe "actual associations tests tests" do
     it "has a meetup_loc" do
