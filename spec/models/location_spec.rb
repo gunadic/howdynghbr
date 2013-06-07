@@ -15,5 +15,30 @@ describe Location do
       expect(loc_clone).to_not be_valid
     end
 
+    it " requires :city to not be nil" do
+      loc = FactoryGirl.build(:location, city: nil)
+      expect(loc).to_not be_valid
+    end
+
+    it " requires :name to not be nil" do
+      loc = FactoryGirl.build(:location, name: nil)
+      expect(loc).to_not be_valid
+    end
+
+    it " requires :state to not be nil" do
+      loc = FactoryGirl.build(:location, state: nil)
+      expect(loc).to_not be_valid
+    end
+
+    it " requires :street_address to not be nil" do
+      loc = FactoryGirl.build(:location, street_address: nil)
+      expect(loc).to_not be_valid
+    end
+
+    it " requires :zip to not be nil" do
+      loc = FactoryGirl.build(:location, zip: nil)
+      expect(loc).to_not be_valid
+    end
+
   end
 end
