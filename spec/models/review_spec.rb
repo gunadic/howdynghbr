@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Review do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it{should belong_to(:participation)}
+
+  it "must provide a rating" do
+    temp = FactoryGirl.build(:review, :rating => nil)
+    expect(temp).to_not be_valid
+  end
+
 end

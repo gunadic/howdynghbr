@@ -1,5 +1,19 @@
 require 'spec_helper'
 
 describe Participation do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "association tests" do
+    it{should belong_to(:meetup)}
+    it{should belong_to(:user)}
+    it{should have_one(:review)}
+  end
+
+  it "must have a meetup_id and a user_id" do
+    temp = FactoryGirl.build(:participation, :user_id => nil)
+    expect(temp).to_not be_valid
+    temp.user_id = 1
+    temp.meetup_id = nil
+    expect(temp).to_not be_valid
+  end
+
 end

@@ -4,4 +4,8 @@ class Participation < ActiveRecord::Base
   has_one :review
   
   attr_accessible :meetup_id, :user_id
+
+  validates_presence_of :user_id
+  validates_presence_of :meetup_id
+
 end
