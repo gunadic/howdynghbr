@@ -20,4 +20,7 @@ class Location < ActiveRecord::Base
   validates_presence_of :street_address
   validates_presence_of :zip
 
+  validates_length_of :zip, :minimum => 5, :maximum => 10
+  validates_length_of :state, :minimum => 2, :maximum => 2
+
 end

@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :neighborhood do
-    name "MyString"
-    city "MyString"
-    state "MyString"
-    coordinates "MyString"
+    name "Coolidge Corner"
+    city "Boston"
+    state "MA"
+    coordinates "somewhere"
   end
 end

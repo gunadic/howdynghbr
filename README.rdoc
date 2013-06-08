@@ -1,5 +1,5 @@
 == howdynghbr
 
-Meet new faces in familiar places. In a world where technology allows us to keep in contact with friends all over the world, we can find ourselves isolated from those that are (physically) closest to us. 
+Meet new faces in familiar places. In a world where technology allows us to keep in contact with friends all over the world, we can find ourselves isolated from those that are (physically) closest to us: the neighbor across the hall, down the street or around the corner.
 
 howdynghbr allows you to connect with those that live across the hall, down the street or around the corner.
