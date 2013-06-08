@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe Category do
 
+  it{should have_many(:favorite_categories)}
+  it{should have_many(:users).through(:favorite_categories)}
+
   it "must have a name" do
     temp = FactoryGirl.build(:category)
     temp.name = nil

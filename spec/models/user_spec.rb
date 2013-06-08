@@ -7,6 +7,7 @@ describe User do
     it{ should have_many(:participations)}
     it{ should have_many(:reviews).through(:participations)}
     it{ should have_one(:favorite_category)}
+    it{ should have_one(:category).through(:favorite_category)}
   end
 
 

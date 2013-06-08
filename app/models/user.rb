@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
   has_many :participations
   has_many :reviews, :through => :participations
   has_one :favorite_category
+  has_one :category, :through => :favorite_category
   
-  attr_accessible :email, :fave_category_id, :first_name, :last_name, :location, 
+  attr_accessible :email, :first_name, :last_name, :location, 
   :short_bio, :tag_line, :user_name, :id
 
   validates_presence_of :user_name

@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :review do
     participation_id 1
     rating 1
-    review "MyText"
+    review "this is my review, its just long enough"
   end
 end
