@@ -1,2 +1,2 @@
-class ParticipationController < ApplicationController
+class ParticipationController < InheritedResources::Base
 end

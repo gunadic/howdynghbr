@@ -1,2 +1,2 @@
-class MeetupController < ApplicationController
+class MeetupController < InheritedResources::Base
 end

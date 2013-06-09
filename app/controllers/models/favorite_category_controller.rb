@@ -1,2 +1,2 @@
-class FavoriteCategoryController < ApplicationController
+class FavoriteCategoryController < InheritedResources::Base
 end

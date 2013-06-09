@@ -1,2 +1,2 @@
-class NeighborhoodController < ApplicationController
+class NeighborhoodController < InheritedResources::Base
 end

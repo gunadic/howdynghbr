@@ -1,2 +1,2 @@
-class ReviewController < ApplicationController
+class ReviewController < InheritedResources::Base
 end

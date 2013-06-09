@@ -1,2 +1,2 @@
-class LocationController < ApplicationController
+class LocationController < InheritedResources::Base
 end
