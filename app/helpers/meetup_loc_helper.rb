@@ -1,0 +1,2 @@
+module MeetupLocHelper
+end

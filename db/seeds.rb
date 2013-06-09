@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+hood_array = ["Fort Point", "Southie", "Chinatown", "North End", 
+  "Financial Center", "Downtown Crossing", "Back Bay", "Fenway",
+  "Beacon Hill", "Allston", "Brighton", "Jamaica Plain", "Dorchester",
+  "South End", "East Boston", "Charlestown", "Brighton", "West End"]

@@ -1,0 +1,2 @@
+module FavoriteCategoryHelper
+end

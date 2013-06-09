@@ -9,6 +9,5 @@ FactoryGirl.define do
     tag_line "Howdy y'all!"
     short_bio "MyText"
     position "MyText"
-    fave_category_id 1
   end
 end
