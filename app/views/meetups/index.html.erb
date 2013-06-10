@@ -1,0 +1,22 @@
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>Creator</th>
+        <th>description</th>
+        <th>time</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+
+    <% @meetups.each do |meetup| %>
+    <tr>
+      <td><%= meetup.user.user_name %></td>
+      <td><%= meetup.description %> </td>
+      <td><%= meetup.meet_up_time %></td>
+      <td><%= meetup.location.name %></td>
+    </tr>
+    <% end %>
+
+  </table>
+</div>

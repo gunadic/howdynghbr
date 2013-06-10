@@ -1,2 +1,4 @@
-class UsersController < InheritedResources::Base
+class UsersController < ApplicationController
+  inherit_resources
+  actions :index, :show
 end
