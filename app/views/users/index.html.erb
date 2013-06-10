@@ -1,8 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Tag Line</th>
+    </tr>
+  </thead>
 
 <% @users.each do |user| %>
-  <%= user.user_name %>
-  <%= user.first_name %>
-  <%= user.last_name %>
-  <%= user.tag_line %>
-  <%= user.short_bio %>
+  <tr>
+    <td><%= user.user_name %></td>
+    <td><%= user.first_name + user.last_name %> </td>
+    <td><%= user.email %></td>
+    <td><%= user.tag_line %></td>
+  </tr>
 <% end %>
+
+</table>
