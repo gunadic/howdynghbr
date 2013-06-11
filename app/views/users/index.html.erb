@@ -1,20 +1,22 @@
-<table>
-  <thead>
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Tag Line</th>
+      </tr>
+    </thead>
+
+  <% @users.each do |user| %>
     <tr>
-      <th>User Name</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Tag Line</th>
+      <td><%= user.user_name %></td>
+      <td><%= user.first_name + user.last_name %> </td>
+      <td><%= user.email %></td>
+      <td><%= user.tag_line %></td>
     </tr>
-  </thead>
+  <% end %>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.user_name %></td>
-    <td><%= user.first_name + user.last_name %> </td>
-    <td><%= user.email %></td>
-    <td><%= user.tag_line %></td>
-  </tr>
-<% end %>
-
-</table>
+  </table>
+</div>

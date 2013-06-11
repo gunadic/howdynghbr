@@ -15,21 +15,22 @@
 </head>
 
 <body>
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">  howdynghbr  </a></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>        
-    </ul>
-    <section class="top-bar-section">
-        <ul class="right">
-         <%= render :partial => './devise/menu/registration_items' %>
-         <%= render :partial => './devise/menu/login_items' %>
-        </ul>
-    </section>
-  </nav>
-
+  <div class="contain-to-grid fixed">
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">  howdynghbr  </a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>        
+      </ul>
+      <section class="top-bar-section">
+          <ul class="right">
+           <%= render :partial => './devise/menu/registration_items' %>
+           <%= render :partial => './devise/menu/login_items' %>
+          </ul>
+      </section>
+    </nav>
+  </div>
   <div class="container">
     <%= yield %>
   </div>
