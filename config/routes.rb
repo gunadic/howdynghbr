@@ -1,5 +1,6 @@
 BreakableToy::Application.routes.draw do
   get "pages/index"
+
   devise_for :users
   resources :users do
     resources :meetups
