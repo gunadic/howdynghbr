@@ -2,8 +2,12 @@ BreakableToy::Application.routes.draw do
   get "pages/index"
 
   devise_for :users
-  resources :users
-  resources :meetups
+
+  resources :users do
+    resources :meetups
+    resources :participations
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
