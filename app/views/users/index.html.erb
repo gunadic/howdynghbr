@@ -9,15 +9,7 @@
       </tr>
     </thead>
 
-<<<<<<< HEAD
-    <% @users.each do |user| %>
-    <tr>
-      <td><%= user.user_name %></td>
-      <td><%= [user.first_name, user.last_name].join(" ") %> </td>
-      <td><%= user.email %></td>
-      <td><%= user.tag_line %></td>
-    </tr>
-=======
+
     <% if @users.first==nil%>
       <p>No users are registered.</p>
     <%else%>
@@ -29,7 +21,6 @@
         <td><%= user.tag_line %></td>
       </tr>
       <% end %>
->>>>>>> rebuild
     <% end %>
 
   </table>
