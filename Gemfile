@@ -24,6 +24,7 @@ group :test, :development do
   gem 'pry'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'launchy'
 end
 
 group :test do

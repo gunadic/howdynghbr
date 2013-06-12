@@ -28,8 +28,8 @@ describe 'registering new user' do
     fill_in 'First name', with:"test"
     fill_in 'Last name', with:"user"
     fill_in 'Email', with:"test_user@example.com"
-    fill_in 'Password', with:"12345678"
-    fill_in 'Password confirmation', with:"12345678"
+    fill_in 'user_password', with:"12345678"
+    fill_in 'user_password_confirmation', with:"12345678"
     click_button 'Sign up'
     click_link 'Logout'
     visit '/users/sign_up'
@@ -37,10 +37,57 @@ describe 'registering new user' do
     fill_in 'First name', with:"test"
     fill_in 'Last name', with:"user"
     fill_in 'Email', with:"test_user@example.com"
-    fill_in 'Password', with:"12345678"
-    fill_in 'Password confirmation', with:"12345678"
+    fill_in 'user_password', with:"12345678"
+    fill_in 'user_password_confirmation', with:"12345678"
     click_button 'Sign up'
-    expect(page).to have_content("has already been taken")
+    expect(page).to have_content("User namehas already been taken")
   end
+
+  it "doesn't allow you to sign up with a taken email" do
+    visit '/users/sign_up'
+    fill_in 'User name', with:"test_user"
+    fill_in 'First name', with:"test"
+    fill_in 'Last name', with:"user"
+    fill_in 'Email', with:"test_user@example.com"
+    fill_in 'user_password', with:"12345678"
+    fill_in 'user_password_confirmation', with:"12345678"
+    click_button 'Sign up'
+    click_link 'Logout'
+    visit '/users/sign_up'
+    fill_in 'User name', with:"test_user"
+    fill_in 'First name', with:"test"
+    fill_in 'Last name', with:"user"
+    fill_in 'Email', with:"test_user@example.com"
+    fill_in 'user_password', with:"12345678"
+    fill_in 'user_password_confirmation', with:"12345678"
+    click_button 'Sign up'
+    expect(page).to have_content("Emailhas already been taken")
+  end
+
+  it "requires a password of at least 8 characters" do
+    visit '/users/sign_up'
+    fill_in 'User name', with:"test_user"
+    fill_in 'First name', with:"test"
+    fill_in 'Last name', with:"user"
+    fill_in 'Email', with:"test_user@example.com"
+    fill_in 'user_password', with:"1234567"
+    fill_in 'user_password_confirmation', with:"1234567"
+    click_button 'Sign up'
+    expect(page).to have_content("Passwordis too short")
+  end
+
+  it "rejects an invalid email address" do
+    visit '/users/sign_up'
+    fill_in 'User name', with:"test_user"
+    fill_in 'First name', with:"test"
+    fill_in 'Last name', with:"user"
+    fill_in 'Email', with:"test_user@example"
+    fill_in 'user_password', with:"12345678"
+    fill_in 'user_password_confirmation', with:"12345678"
+    click_button 'Sign up'
+    expect(page).to have_content("Emailis invalid")
+  end
+
+
   
 end

@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(:version => 20130609012650) do
     t.string   "street_address"
     t.string   "city"
     t.string   "state"
+    t.string   "zip"
     t.integer  "neighborhood_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "zip"
   end
 
   create_table "meetup_locs", :force => true do |t|
