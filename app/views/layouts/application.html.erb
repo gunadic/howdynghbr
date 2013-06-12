@@ -15,22 +15,13 @@
 </head>
 
 <body>
-  <div class="contain-to-grid fixed">
-    <nav class="top-bar">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="/">  howdynghbr  </a></h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>        
-      </ul>
-      <section class="top-bar-section">
-          <ul class="right">
-           <%= render :partial => './devise/menu/registration_items' %>
-           <%= render :partial => './devise/menu/login_items' %>
-          </ul>
-      </section>
-    </nav>
+  <%= render './layouts/header' %>
+
+  <% if flash[:notice] %>
+  <div class="row">
+    <div class="notice"><%= flash[:notice] %></div>
   </div>
+  <% end %>
   <div class="container">
     <%= yield %>
   </div>
@@ -39,3 +30,5 @@
   <%= javascript_include_tag "application" %>
 </body>
 </html>
+
+
