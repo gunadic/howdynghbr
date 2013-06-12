@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: breakable_toy_development
+  database: howdynghbr_development
   pool: 5
   username: 
   password:
@@ -41,7 +41,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: breakable_toy_test
+  database: howdynghbr_test
   pool: 5
   username: 
   password:
@@ -49,7 +49,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: breakable_toy_production
+  database: howdynghbr_production
   pool: 5
   username: 
   password:
