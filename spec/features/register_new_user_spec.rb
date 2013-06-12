@@ -21,5 +21,26 @@ describe 'registering new user' do
     click_button 'Sign up'
     expect(page).to have_content("can't be blank")
   end
+
+  it "doesn't allow you to sign up with an already taken" do
+    visit '/users/sign_up'
+    fill_in 'User name', with:"test_user"
+    fill_in 'First name', with:"test"
+    fill_in 'Last name', with:"user"
+    fill_in 'Email', with:"test_user@example.com"
+    fill_in 'Password', with:"12345678"
+    fill_in 'Password confirmation', with:"12345678"
+    click_button 'Sign up'
+    click_link 'Logout'
+    visit '/users/sign_up'
+    fill_in 'User name', with:"test_user"
+    fill_in 'First name', with:"test"
+    fill_in 'Last name', with:"user"
+    fill_in 'Email', with:"test_user@example.com"
+    fill_in 'Password', with:"12345678"
+    fill_in 'Password confirmation', with:"12345678"
+    click_button 'Sign up'
+    expect(page).to have_content("has already been taken")
+  end
   
 end
