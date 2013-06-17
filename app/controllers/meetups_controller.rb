@@ -1,4 +1,4 @@
 class MeetupsController < ApplicationController
   inherit_resources
-  actions :index, :show
+  actions :index, :show, :new
 end
