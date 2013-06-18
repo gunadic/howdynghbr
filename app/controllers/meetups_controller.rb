@@ -21,10 +21,8 @@ class MeetupsController < ApplicationController
       flash[:notice] = "Something went wrong!"
       redirect_to new_meetup_path(@meetup)
     end
-
   end
 
-  def edit
 
-  end
+
 end

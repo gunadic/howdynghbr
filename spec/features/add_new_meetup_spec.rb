@@ -24,6 +24,9 @@ describe 'creating a new meetup' do
     fill_in 'Password', with: user.password
     click_button "Sign in"
     click_link "New Meetup"
+    expect(page).to have_content("Description")
+    expect(page).to have_content("Category")
+    expect(page).to have_button("Create Meetup")
   end
 
 end
