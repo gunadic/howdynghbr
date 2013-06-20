@@ -8,11 +8,17 @@ describe MeetupLoc do
   end
 
   it " requires a non-nil meetup_id and location_id" do
-    temp = FactoryGirl.build(:meetup_loc)
+    temp_meetup = FactoryGirl.create(:meetup)
+    temp_location = FactoryGirl.create(:location)
+    binding.pry
+    temp = FactoryGirl.build(:meetup_loc, :location => temp_location,
+      :meetup => temp_meetup)
     expect(temp).to be_valid
-    temp = FactoryGirl.build(:meetup_loc, :meetup_id => nil)
+    temp = FactoryGirl.build(:meetup_loc, :location => temp_location,
+      :meetup => nil)
     expect(temp).to_not be_valid
-    temp = FactoryGirl.build(:meetup_loc, :location_id => nil)
+    temp = FactoryGirl.build(:meetup_loc, :location => nil,
+      :meetup => temp_meetup)
     expect(temp).to_not be_valid
   end
 

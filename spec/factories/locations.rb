@@ -6,8 +6,12 @@ FactoryGirl.define do
     "#{n} Summer Street"
   end
 
+  sequence :name do |n|
+    "Location Name #{n}"
+  end
+
   factory :location do
-    name "MyString"
+    name :name
     street_address :street_address
     city "Boston"
     state "MA"

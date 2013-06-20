@@ -8,6 +8,9 @@ BreakableToy::Application.routes.draw do
     resources :participations
   end
 
+  resources :meetups do
+    resources :meetup_locs
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

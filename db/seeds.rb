@@ -27,3 +27,4 @@ cambridge_hoods.each do|hood|
   Neighborhood.create(:name => hood, :city => "Cambridge", :state => "MA")
 end
 
+
