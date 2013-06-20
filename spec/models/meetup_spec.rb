@@ -38,6 +38,7 @@ describe Meetup do
       review = FactoryGirl.create(:review, :participation_id => participation.id)
       expect(meetup.reviews).to include(review)
     end
+
   end
 
 end

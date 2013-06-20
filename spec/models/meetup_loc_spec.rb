@@ -10,7 +10,6 @@ describe MeetupLoc do
   it " requires a non-nil meetup_id and location_id" do
     temp_meetup = FactoryGirl.create(:meetup)
     temp_location = FactoryGirl.create(:location)
-    binding.pry
     temp = FactoryGirl.build(:meetup_loc, :location => temp_location,
       :meetup => temp_meetup)
     expect(temp).to be_valid
