@@ -4,7 +4,8 @@ FactoryGirl.define do
   factory :meetup do
     user
     category
-    meet_up_time "2013-06-02 18:35:53"
+    meetup_date Time.now.strftime("%D")
+    meetup_time Time.now.strftime("%I:%M")
     is_past false
     description "MyText"
   end
