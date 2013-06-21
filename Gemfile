@@ -9,6 +9,7 @@ gem 'inherited_resources'
 gem 'devise'
 gem 'sextant'
 gem 'simple_form'
+gem 'pickadate-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

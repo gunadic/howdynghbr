@@ -2,7 +2,7 @@ class Category < ActiveRecord::Base
 
   has_many :favorite_categories
   has_many :users, :through => :favorite_categories
-  has_many :meetups
+  has_many :meetups, inverse_of: :category
 
   attr_accessible :name, :parent_id
 

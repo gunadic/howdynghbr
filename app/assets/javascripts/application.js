@@ -13,6 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require pickadate/picker 
+//= require pickadate/picker.date 
+//= require pickadate/picker.time 
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ 
+
+  $(document).foundation(); 
+  $("#meetup_category_id").chosen();
+  $("#meetup_neighborhood_id").chosen();
+  $("#meetup_meetup_time").pickatime();
+  $("#meetup_meetup_date").pickadate();
+
+
+});

@@ -85,6 +85,8 @@ GEM
       rspec (>= 2.13)
     orm_adapter (0.4.0)
     pg (0.15.1)
+    pickadate-rails (1.0.2)
+      railties (>= 3.1.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -182,6 +184,7 @@ DEPENDENCIES
   launchy
   nyan-cat-formatter
   pg
+  pickadate-rails
   pry
   rails (= 3.2.13)
   rspec-rails

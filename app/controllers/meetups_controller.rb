@@ -1,4 +1,6 @@
 class MeetupsController < ApplicationController
+  before_filter :authenticate_user!
+
 
   def index
     @meetups = Meetup.find(:all)

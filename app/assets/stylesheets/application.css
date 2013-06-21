@@ -10,5 +10,8 @@
  *
  *= require_self
  *= require foundation_and_overrides
+ *= require pickadate/classic
+ *= require pickadate/classic.date
+ *= require pickadate/classic.time
  *= require_tree .
  */
