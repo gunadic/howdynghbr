@@ -7,7 +7,8 @@
   <%= f.input :meetup_date, :label => "Date" %>
   <%= f.input :meetup_time, :label => "Time" %>
   <%= f.input :category %>
-  <%= f.input :neighborhood %>
+  <%= f.collection_select :neighborhood_id, 
+    Neighborhood.all, :id, :name %>
   <%= f.input :location %>
   <%= f.input :description %>
   <%= f.button :submit %>
