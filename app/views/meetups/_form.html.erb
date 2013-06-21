@@ -8,7 +8,7 @@
   <%= f.input :meetup_time, :as => :string, :label => "Time", input_html: {class: 'datepicker'} %>
   <%= f.association :category, :label => "I want to..." %>
   <%= f.association :neighborhood %>
-  <%= f.input :location %>
+  <%= f.association :location, collection: []%>
   <%= f.input :description %>
   <%= f.button :submit %>
 

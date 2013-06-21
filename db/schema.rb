@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620184104) do
+ActiveRecord::Schema.define(:version => 20130621183357) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20130620184104) do
     t.date     "meetup_date"
     t.time     "meetup_time"
     t.integer  "neighborhood_id"
+    t.integer  "location_id"
   end
 
   create_table "neighborhoods", :force => true do |t|
