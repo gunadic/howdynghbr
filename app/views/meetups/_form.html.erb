@@ -1,0 +1,17 @@
+
+
+<div class="row">
+<%= simple_form_for @meetup do |f|%>
+<fieldset>
+
+  <%= f.input :meetup_date, :as => :string, :label => "Date", input_html: {class: 'datepicker'} %>
+  <%= f.input :meetup_time, :as => :string, :label => "Time", input_html: {class: 'datepicker'} %>
+  <%= f.association :category, :label => "I want to..." %>
+  <%= f.association :neighborhood %>
+  <%= f.association :location, collection: []%>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+
+</fieldset>
+<% end %>
+</div>

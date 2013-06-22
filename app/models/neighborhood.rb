@@ -1,7 +1,7 @@
 class Neighborhood < ActiveRecord::Base
 
   has_many :locations
-
+  has_many :meetups, :inverse_of => :neighborhood
   attr_accessible :city, :coordinates, :name, :state
 
   validates_presence_of :state

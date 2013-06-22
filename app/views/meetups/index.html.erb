@@ -2,19 +2,23 @@
   <table>
     <thead>
       <tr>
-        <th>Creator</th>
-        <th>description</th>
-        <th>time</th>
-        <th>Location</th>
+        <th>Organizer</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Time</th>
+        <th>Date</th>
+        <th>Neighborhood</th>
       </tr>
     </thead>
 
     <% @meetups.each do |meetup| %>
     <tr>
-      <td><%= meetup.user.user_name %></td>
+      <td><%= meetup.username %></td>
+      <td><%= meetup.cat_name %></td>
       <td><%= meetup.description %> </td>
-      <td><%= meetup.meet_up_time %></td>
-      <td><%= meetup.location.name %></td>
+      <td><%= meetup.time %></td>
+      <td><%= meetup.date %></td>
+      <td><%= meetup.hood %></td>
     </tr>
     <% end %>
 

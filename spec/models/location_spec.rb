@@ -3,8 +3,7 @@ require 'spec_helper'
 describe Location do
   describe " shoulda tests" do
     it{ should belong_to(:neighborhood)}
-    it{ should have_many(:meetup_locs)}
-    it{ should have_many(:meetups).through(:meetup_locs)}
+    it{ should have_many(:meetups)}
   end
 
   describe "validation tests" do

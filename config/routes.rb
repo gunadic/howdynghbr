@@ -3,11 +3,17 @@ BreakableToy::Application.routes.draw do
 
   devise_for :users
 
-  resources :users do
-    resources :meetups
+  resources :users 
+  resources :meetups do
     resources :participations
   end
 
+  resources :meetups do
+    resources :meetup_locs
+  end
+
+  resources :neighborhoods
+  resources :locations
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
