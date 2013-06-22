@@ -10,7 +10,7 @@ gem 'devise'
 gem 'sextant'
 gem 'simple_form'
 gem 'pickadate-rails'
-
+gem 'selenium-webdriver'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
