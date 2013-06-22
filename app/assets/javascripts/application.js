@@ -47,11 +47,7 @@ $(function(){
     options.chosen();
   // $(".meetup_location").show();
   }
-  $("#meetup_meetup_time").pickatime({
-    formatSubmit: 'HH:i'
-  });
-  $("#meetup_meetup_date").pickadate();
+$("#meetup_meetup_time").pickatime();
+$("#meetup_meetup_date").pickadate();
   // $("#meetup_location_id").chosen();
-
-
 });
