@@ -11,16 +11,16 @@ describe User do
   end
 
 
-  it "must have a unique user name" do
-    FactoryGirl.create(:user)
-    temp = FactoryGirl.build(:user, :email => "notdefault@factory.com")
+  it "must have a unique email" do
+    user1 = FactoryGirl.create(:user)
+    temp = FactoryGirl.build(:user, :email => user1.email)
     expect(temp.valid?).to eql(false)
   end
 
   it "must have a unique email address" do
-    FactoryGirl.create(:user)
-    temp = FactoryGirl.build(:user, :user_name => "temp1")
-    expect(temp.valid?).to eql(false)
+    user1 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.build(:user, :user_name => user1.user_name)
+    expect(user2.valid?).to eql(false)
   end
 
   it "has participations" do

@@ -13,6 +13,41 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require pickadate/picker 
+//= require pickadate/picker.date 
+//= require pickadate/picker.time 
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ 
+  // $(".meetup_location").hide();
+  $(document).foundation(); 
+  $("#meetup_category_id").chosen();
+  $("#meetup_neighborhood_id").chosen().change(function(e) {
+    var id = $(e.target).val();
+    $.ajax({
+      url: '/locations',
+      data: {id: id},
+      type: "GET",
+      dataType: "json",
+      context: this,
+      success: function(data) {
+        console.log(data);
+        addAll(data);
+      },
+      error: function(){
+        alert("Something went wrong. Please try again in a moment.");
+      }
+    });
+  });
+  function addAll(data){
+    var options = $("#meetup_location_id");
+    _.each(data, function(d){ 
+      options.append($("<option />").val(d.id).text(d.name));
+    });
+    options.chosen();
+  // $(".meetup_location").show();
+  }
+$("#meetup_meetup_time").pickatime();
+$("#meetup_meetup_date").pickadate();
+  // $("#meetup_location_id").chosen();
+});
