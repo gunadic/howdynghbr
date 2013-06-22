@@ -16,6 +16,7 @@ class MeetupsController < ApplicationController
 
   def create
     @meetup = Meetup.new(params[:meetup])
+    @meetup.user = current_user
     if @meetup.save
       flash[:notice] = "Meetup succesfully created!"
       redirect_to meetup_path(@meetup)
