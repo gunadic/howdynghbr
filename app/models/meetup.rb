@@ -13,5 +13,25 @@ class Meetup < ActiveRecord::Base
 
   validates_presence_of :user
 
+  def time
+    meetup_time.strftime("%I:%M %p")
+  end
+
+  def date
+    meetup_date.strftime("%D")
+  end
+
+  def hood
+    neighborhood.name
+  end
+
+  def username
+    user.user_name
+  end
+
+  def cat_name
+    category.name
+  end
+
 
 end
