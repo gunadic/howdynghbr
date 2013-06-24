@@ -1,13 +1,13 @@
 class MeetupsController < ApplicationController
   before_filter :authenticate_user!
 
-
   def index
     @meetups = Meetup.find(:all)
   end
 
   def show
     @meetup = Meetup.find(params[:id])
+    @location = @meetup.location
   end
 
   def new

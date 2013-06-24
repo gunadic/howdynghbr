@@ -12,6 +12,11 @@ class Meetup < ActiveRecord::Base
     :meetup_date, :meetup_time, :neighborhood_id, :location_id
 
   validates_presence_of :user
+  validates_presence_of :category
+  validates_presence_of :neighborhood
+  validates_presence_of :location
+  validates_presence_of :meetup_time
+  validates_presence_of :meetup_date
 
   def time
     meetup_time.strftime("%I:%M %p")
@@ -31,6 +36,11 @@ class Meetup < ActiveRecord::Base
 
   def cat_name
     category.name
+  end
+
+  def in_words
+    "#{user.user_name} wants to #{category.name} 
+      at #{location.name} in #{neighborhood.name} on #{meetup_date}."
   end
 
 
