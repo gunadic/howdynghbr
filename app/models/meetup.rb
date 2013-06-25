@@ -5,8 +5,7 @@ class Meetup < ActiveRecord::Base
   has_many :participations
   has_many :reviews, :through => :participations
   belongs_to :location, inverse_of: :meetups
-    # has_one :meetup_loc
-    # has_one :location, :through => :meetup_loc
+  acts_as_gmappable :process_geocoding => false
 
   attr_accessible :category_id, :description, :is_past, :meet_up_time, :user_id, 
     :meetup_date, :meetup_time, :neighborhood_id, :location_id
@@ -41,6 +40,14 @@ class Meetup < ActiveRecord::Base
   def in_words
     "#{user.user_name} wants to #{category.name} 
       at #{location.name} in #{neighborhood.name} on #{meetup_date}."
+  end
+
+  def get_json
+    location.to_gmaps4rails
+  end
+
+  def gmaps4rails_address
+    "#{location.street_address}, #{location.city}, #{location.state}" 
   end
 
 

@@ -3,11 +3,18 @@ class MeetupsController < ApplicationController
 
   def index
     @meetups = Meetup.find(:all)
+    @json = ""
+    @meetups.each do |meetup|
+      @json +=e meetup.get_json
+      binding.pry
+    end
   end
 
   def show
     @meetup = Meetup.find(params[:id])
     @location = @meetup.location
+    @json = @location.to_gmaps4rails
+    binding.pry
   end
 
   def new

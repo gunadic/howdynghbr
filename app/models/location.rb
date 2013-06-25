@@ -1,8 +1,8 @@
 class Location < ActiveRecord::Base
 
-  belongs_to :neighborhood
+  belongs_to :neighborhood, inverse_of: :locations
   has_many :meetups, inverse_of: :location
-
+  acts_as_gmappable :process_geocoding => false
 
   attr_accessible :city, :latitude, :longitude, :name, :neighborhood_id, 
     :state, :street_address, :zip
@@ -10,7 +10,7 @@ class Location < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
   def full_address
-    [name, street_address, city, state, zip].join(" ")
+    [street_address, city, state, zip].join(" ")
   end
 
   def gmaps4rails_address
