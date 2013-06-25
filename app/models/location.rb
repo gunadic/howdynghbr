@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-
+  include Rails.application.routes.url_helpers
   belongs_to :neighborhood, inverse_of: :locations
   has_many :meetups, inverse_of: :location
   acts_as_gmappable :process_geocoding => false
@@ -27,6 +27,17 @@ class Location < ActiveRecord::Base
   validates_length_of :zip, :minimum => 5, :maximum => 10
   validates_length_of :state, :minimum => 2, :maximum => 2
 
+
+
+  def gmaps4rails_infowindow
+    result = "<ul>"
+    meetups.each do |meetup|
+      result += "<a href=#{meetup_path(meetup)}><h4>#{meetup.in_words}</h4></a>"
+
+    end
+    result += "</ul>"
+    return result
+  end
 
 
 end

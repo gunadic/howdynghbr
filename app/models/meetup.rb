@@ -42,12 +42,8 @@ class Meetup < ActiveRecord::Base
       at #{location.name} in #{neighborhood.name} on #{meetup_date}."
   end
 
-  def get_json
-    location.to_gmaps4rails
-  end
-
   def gmaps4rails_address
-    "#{location.street_address}, #{location.city}, #{location.state}" 
+    "#{location.street_address}, #{location.city}, #{location.state}, #{self.location.latitude}, #{self.location.longitude}" 
   end
 
 

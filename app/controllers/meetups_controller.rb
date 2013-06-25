@@ -2,19 +2,19 @@ class MeetupsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @meetups = Meetup.find(:all)
+    @meetups = Meetup.order("id").includes(:location)
     @json = ""
-    @meetups.each do |meetup|
-      @json +=e meetup.get_json
-      binding.pry
+    @meetups.each do |meetup| 
+      @json += meetup.location.to_gmaps4rails
     end
+    swap_brackets(@json)
   end
 
   def show
     @meetup = Meetup.find(params[:id])
     @location = @meetup.location
     @json = @location.to_gmaps4rails
-    binding.pry
+    
   end
 
   def new
@@ -33,6 +33,10 @@ class MeetupsController < ApplicationController
     end
   end
 
+  protected
 
+  def swap_brackets(string)
+    string.gsub!(/\]\[/,",")
+  end
 
 end
