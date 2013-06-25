@@ -6,10 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require 'csv'
 
 Category.destroy_all
 Neighborhood.destroy_all
 Location.destroy_all
+Meetup.destroy_all
 
 
 boston_hoods = ["Allston/Brighton","Back Bay","Bay Village","Beacon Hill",
@@ -27,22 +29,22 @@ brookline_hoods = ["Brookline Hills","Brookline Village","Chestnut Hill","Coolid
  category_array = ["Lunch","Dinner","Drinks","Coffee","Shop","Explore",
   "Learn"]
 
-  locations = [{
-    name: "Mission Control",
-    street_address: "337 Summer St",
-    city: "Boston",
-    state: "MA",
-    neighborhood: "Southie",
-    zip: "02210"
-    },{
-    name: "Cutty's",
-    street_address: "284 Washington St",
-    city: "Brookline",
-    state: "MA",
-    neighborhood: "Brookline Village",
-    zip: "02445"
-    }
-  ]
+  @locations = []
+  def load_from_csv
+    CSV.foreach('./db/locations.csv', 'r') do |row|
+      location = {
+        name: row[0],
+        street_address: row[1].lstrip!,
+        city: row[2].lstrip!,
+        state: row[3].lstrip!,
+        neighborhood: row[4].lstrip!,
+        zip: row[5]
+      }
+      @locations << location
+    end
+  end
+
+
 
 category_array.each do |c|
   Category.create(:name => c)
@@ -61,12 +63,12 @@ brookline_hoods.each do|hood|
   Neighborhood.create(:name => hood, :city => "Brookline", :state => "MA")
 end
 
-locations.each do |l|
+load_from_csv
+@locations.each do |l|
   hood = Neighborhood.find_by_name(l.delete(:neighborhood))
   loc = Location.new(l)
   loc.neighborhood = hood
   loc.save
-
 end
 
 
