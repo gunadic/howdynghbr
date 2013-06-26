@@ -32,7 +32,7 @@ class Location < ActiveRecord::Base
   def gmaps4rails_infowindow
     result = "<ul>"
     meetups.each do |meetup|
-      result += "<a href=#{meetup_path(meetup)}><h4>#{meetup.in_words}</h4></a>"
+      result += "<li><a href=#{meetup_path(meetup)}><h4>#{meetup.in_words}</h4></a></li>"
 
     end
     result += "</ul>"

@@ -12,7 +12,7 @@ BreakableToy::Application.routes.draw do
     resources :meetup_locs
   end
 
-  resources :neighborhoods
+  resources :neighborhoods 
   resources :locations
 
   # The priority is based upon order of creation:
