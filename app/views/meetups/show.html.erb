@@ -1,0 +1,7 @@
+<div class="row">
+<h3> Meet Deets </h3>
+<h3><%= @meetup.in_words %></h3>
+<h4><%= @meetup.description %></h4>
+<p> You in? </p>
+<%= gmaps4rails(@json) %>
+</div>
