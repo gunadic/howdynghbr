@@ -7,9 +7,7 @@ include Warden::Test::Helpers
 # Acceptance Criteria
 # 1) Meetup detail page has an "I'm in!" button.
 # 2) Meetup detail page has list of people who have signed up.
-# 3) Users can view profiles of people who ahve signed up by clicking on them.
-# 4) User can only sign up for the meetup once.
-# 5) User can cancel participation.
+# 3) User can only sign up for the meetup once.
 
 describe 'signing up for a meetup' do 
 
@@ -20,15 +18,25 @@ describe 'signing up for a meetup' do
     @meetup = FactoryGirl.create(:meetup)
   end
 
-  it " a meetup detail page has a 'I'm In! button" do
+  it " a user can sign up by pressing the I'm in! button" do
     visit meetup_path(@meetup.id)
     former_participants = @meetup.participations.length
     click_on("I'm in!")
     expect(@meetup.reload.participations.length).to eql(former_participants+1)
-    binding.pry
   end
 
+  it " participating users are listed on the details page" do 
+    visit meetup_path(@meetup.id)
+    click_on("I'm in!")
+    expect(page).to have_content(@temp.user_name)
+  end
 
+  it "does not allow a user to create multiple participations" do
+    visit meetup_path(@meetup.id)
+    click_on("I'm in!")
+    click_on("I'm in!")
+    expect(page).to have_content("Hold your horses,")
+  end
 
   
 end

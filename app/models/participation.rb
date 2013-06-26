@@ -5,6 +5,7 @@ class Participation < ActiveRecord::Base
   
   attr_accessible :meetup_id, :user_id
 
+  validates_uniqueness_of :user_id, :scope => :meetup_id
   validates_presence_of :user_id
   validates_presence_of :meetup_id
 

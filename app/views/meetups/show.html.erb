@@ -8,9 +8,17 @@
       <p><%= "#{@meetup.participations.count} others are in. Are you?" %></p>
       <p>
         <%= form_for [@meetup, @participation] do |f| %>
-        <%= f.submit "I'm in!" %>
+          <%= f.submit "I'm in!" %>
         <% end %>
       </p>
+    </div>
+    <div class="panel">
+      <h5>Who'll be there:</h5>
+      <ul>
+        <% @meetup.participations.each do |p| %>
+          <li><%= p.user.user_name if p.id!=nil %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
   <div class="large-4 columns" id="detail_map">
@@ -19,5 +27,5 @@
         "markers"     => { "data" => @json }
       })
       %>
-    </div>
   </div>
+</div>
