@@ -28,4 +28,4 @@
 
 
 </div>
-<%= gmaps4rails(@json) %>
+<%= gmaps("markers" => { "data" => @markers, "options" => {"do_clustering"=>true, "clusterer_maxZoom"=>16} }) %>
