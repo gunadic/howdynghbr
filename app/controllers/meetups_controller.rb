@@ -3,18 +3,17 @@ class MeetupsController < ApplicationController
 
   def index
     @meetups = Meetup.order("id").includes(:location)
-    @json = ""
+    @markers = ""
     @meetups.each do |meetup| 
-      @json += meetup.location.to_gmaps4rails
+      @markers += meetup.location.to_gmaps4rails
     end
-    swap_brackets(@json)
+    swap_brackets(@markers)
   end
 
   def show
     @meetup = Meetup.find(params[:id])
     @location = @meetup.location
     @json = @location.to_gmaps4rails
-    
   end
 
   def new
