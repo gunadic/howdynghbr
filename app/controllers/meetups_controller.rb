@@ -12,6 +12,7 @@ class MeetupsController < ApplicationController
 
   def show
     @meetup = Meetup.find(params[:id])
+    @participation = @meetup.participations.new
     @location = @meetup.location
     @json = @location.to_gmaps4rails
   end
