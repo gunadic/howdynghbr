@@ -53,3 +53,5 @@ $("#meetup_meetup_time").pickatime();
 $("#meetup_meetup_date").pickadate();
   // $("#meetup_location_id").chosen();
 });
+
+$(function(){ $(document).foundation(); });
