@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-BreakableToy::Application.load_tasks
+Howdynghbr::Application.load_tasks

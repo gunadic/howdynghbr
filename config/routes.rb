@@ -1,4 +1,4 @@
-BreakableToy::Application.routes.draw do
+Howdynghbr::Application.routes.draw do
   get "pages/index"
 
   devise_for :users
