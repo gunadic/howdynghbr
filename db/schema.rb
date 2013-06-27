@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625211652) do
+ActiveRecord::Schema.define(:version => 20130627123122) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(:version => 20130625211652) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "participations", ["user_id", "meetup_id"], :name => "index_participations_on_user_id_and_meetup_id", :unique => true
 
   create_table "reviews", :force => true do |t|
     t.integer  "participation_id"
