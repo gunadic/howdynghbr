@@ -8,6 +8,7 @@ end
 
 module Howdynghbr
   class Application < Rails::Application
+    config.assets.initialize_on_precompile = false
     config.time_zone = 'Eastern Time (US & Canada)'
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
