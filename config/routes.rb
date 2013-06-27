@@ -8,9 +8,7 @@ BreakableToy::Application.routes.draw do
     resources :participations
   end
 
-  resources :meetups do
-    resources :meetup_locs
-  end
+  resources :meetups
 
   resources :neighborhoods 
   resources :locations

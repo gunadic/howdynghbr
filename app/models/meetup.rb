@@ -39,7 +39,8 @@ class Meetup < ActiveRecord::Base
 
   def in_words
     "#{user.user_name} wants to #{category.name} 
-      at #{location.name} in #{neighborhood.name} on #{meetup_date}."
+      at #{location.name} in #{neighborhood.name} on #{meetup_date.strftime("%m/%d")}
+      around #{meetup_time.strftime("%I:%M%p")}."
   end
 
   def gmaps4rails_address

@@ -16,3 +16,6 @@
  *= require_tree .
  */
 
+#detail-map{
+  height: 200px;
+}

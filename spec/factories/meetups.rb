@@ -7,7 +7,7 @@ FactoryGirl.define do
     neighborhood
     location
     meetup_date Time.now
-    meetup_time Time.now
+    meetup_time Time.now 
     is_past false
     description "MyText"
   end

@@ -20,7 +20,7 @@ include Warden::Test::Helpers
 
 describe 'creating a new meetup' do
 
-  it "  a signed in user sees a New Meetup link in the header" do
+  it " a signed in user sees a New Meetup link in the header" do
     visit '/'
     expect(page).to_not have_content("New Meetup")
     user = FactoryGirl.create(:user) 
@@ -31,7 +31,7 @@ describe 'creating a new meetup' do
     expect(page).to have_content("New Meetup")
   end
 
-  it "  a signed in user is brought to a new meetup form after clicking new meetup" do
+  it " a signed in user is brought to a new meetup form after clicking new meetup" do
     visit '/'
     expect(page).to_not have_content("New Meetup")
     user = FactoryGirl.create(:user) 
@@ -61,9 +61,12 @@ describe 'creating a new meetup' do
   #   fill_in 'Description', with: "DIS IS A TEST"
   # end
 
-  
-
-
+  it " a newly created meetup displays its content on its detail page" do
+    temp = FactoryGirl.create(:meetup)
+    login_as(temp.user, :scope => :user)
+    visit meetup_path(temp)
+    expect(page).to have_content(temp.location.name)
+  end
 
 
 end
