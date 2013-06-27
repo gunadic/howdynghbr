@@ -4,9 +4,6 @@
   <fieldset>
 <%= simple_form_for @meetup do |f|%>
   <%= f.error_notification %>
-
-
-
   <%= f.input :meetup_date, :as => :string, :required => true, :label => "Date", input_html: {class: 'datepicker'} %>
   <%= f.input :meetup_time, :as => :string, :required => true, :label => "Time", input_html: {class: 'datepicker'} %>
   <%= f.association :category, :required => true, :label => "I want to..." %>

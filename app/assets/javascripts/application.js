@@ -16,13 +16,12 @@
 //= require pickadate/picker 
 //= require pickadate/picker.date 
 //= require pickadate/picker.time 
-
 //= require_tree .
 
 
-$(document).foundation(); 
-$(function(){ 
-  // $(".meetup_location").hide();
+$(document).foundation();
+$(function(){
+  $("#meetup_location_id").hide();
   $("#meetup_category_id").chosen();
   $("#meetup_neighborhood_id").chosen().change(function(e) {
     var id = $(e.target).val();
@@ -43,13 +42,14 @@ $(function(){
   });
   function addAll(data){
     var options = $("#meetup_location_id");
-  _.each(data, function(d){ 
+    $("option",options).remove();
+    options.append($("<option />").val("").text(""));
+    _.each(data, function(d){ 
       options.append($("<option />").val(d.id).text(d.name));
     });
-    options.chosen();
-  // $(".meetup_location").show();
+    // options.chosen();
+    options.show();
   };
-$("#meetup_meetup_time").pickatime();
-$("#meetup_meetup_date").pickadate();
-  // $("#meetup_location_id").chosen();
+  $("#meetup_meetup_time").pickatime();
+  $("#meetup_meetup_date").pickadate();
 });
