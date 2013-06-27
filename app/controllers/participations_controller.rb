@@ -9,7 +9,7 @@ class ParticipationsController < ApplicationController
       flash[:notice] = "Cool! See you there!"
       redirect_to meetup_path(@meetup)
     else
-      flash[:alert] = "Hold your horses, somethings sideways..."
+      flash[:alert] = "Hold your horses, something's gone sideways..."
       redirect_to meetup_path(@meetup)
     end
   end
