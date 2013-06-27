@@ -21,7 +21,7 @@
 
 $(document).foundation();
 $(function(){
-  $("#meetup_location_id").hide();
+  $(".meetup_location").hide();
   $("#meetup_category_id").chosen();
   $("#meetup_neighborhood_id").chosen().change(function(e) {
     var id = $(e.target).val();
@@ -48,7 +48,7 @@ $(function(){
       options.append($("<option />").val(d.id).text(d.name));
     });
     // options.chosen();
-    options.show();
+    $(".meetup_location").show();
   };
   $("#meetup_meetup_time").pickatime();
   $("#meetup_meetup_date").pickadate();
