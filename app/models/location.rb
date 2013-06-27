@@ -8,7 +8,7 @@ class Location < ActiveRecord::Base
     :state, :street_address, :zip
 
   geocoded_by :full_address
-  after_validation :geocode
+  before_save :geocode
   def full_address
     [street_address, city, state, zip].join(" ")
   end
