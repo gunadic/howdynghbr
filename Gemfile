@@ -10,14 +10,14 @@ gem 'devise'
 gem 'sextant'
 gem 'simple_form'
 gem 'pickadate-rails'
-gem 'selenium-webdriver'
+gem 'gmaps4rails'
+gem 'kaminari'
+gem 'zurb-foundation'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'zurb-foundation'
-  gem 'gmaps4rails'
-  gem 'kaminari'
+
 end
 
 gem 'jquery-rails'
