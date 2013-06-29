@@ -1,0 +1,10 @@
+<div class="panel" id="participants">
+  <h5>Who'll be there:</h5>
+  <ul>
+    <% @meetup.participations.each do |p| %>
+      <% if(p.valid?) %>
+      <li><%= link_to "#{p.user.user_name}", user_path(p.user) if p.id!=nil %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
