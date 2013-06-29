@@ -1,32 +1,46 @@
-<%= gmaps("markers" => { "data" => @markers, "options" => {"do_clustering"=>true, "clusterer_maxZoom"=>16} }) %>
-<div class="row">
-  <table>
-    <thead>
-      <tr>
-        <th> ID for testing </th>
-        <th>Organizer</th>
-        <th>Category</th>
-        <th>Description</th>
-        <th>Time</th>
-        <th>Date</th>
-        <th>Neighborhood</th>
-      </tr>
-    </thead>
+<%= gmaps(
+  "map_options" =>{
+    :detect_location => true , 
+    :center_on_user => true ,
+    :auto_zoom => false,
+    :zoom => 18
+    },
+  "markers" => { 
+    "data" => @markers, 
+    "options" => {
+      "do_clustering" => true, 
+      "clusterer_maxZoom" => 16} 
+    }
+  ) 
+%>
+      <div class="row">
+        <table>
+          <thead>
+            <tr>
+              <th> ID for testing </th>
+              <th>Organizer</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Time</th>
+              <th>Date</th>
+              <th>Neighborhood</th>
+            </tr>
+          </thead>
 
-    <% @meetups.each do |meetup| %>
-    <tr>
-      <td><%= meetup.id %></td>
-      <td><%= meetup.username %></td>
-      <td><%= meetup.cat_name %></td>
-      <td><%= meetup.description %> </td>
-      <td><%= meetup.time %></td>
-      <td><%= meetup.date %></td>
-      <td><%= meetup.hood %></td>
-    </tr>
-    <% end %>
+          <% @meetups.each do |meetup| %>
+          <tr>
+            <td><%= meetup.id %></td>
+            <td><%= meetup.username %></td>
+            <td><%= meetup.cat_name %></td>
+            <td><%= meetup.description %> </td>
+            <td><%= meetup.time %></td>
+            <td><%= meetup.date %></td>
+            <td><%= meetup.hood %></td>
+          </tr>
+          <% end %>
 
-  </table>
+        </table>
 
 
-</div>
+      </div>
 

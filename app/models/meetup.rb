@@ -43,6 +43,14 @@ class Meetup < ActiveRecord::Base
       around #{meetup_time.strftime("%I:%M%p")}."
   end
 
+  def whos_in
+    if self.participations.count == 0
+      "Nobody has signed up yet."
+    else
+
+    end
+  end
+
   def gmaps4rails_address
     "#{location.street_address}, #{location.city}, #{location.state}, #{self.location.latitude}, #{self.location.longitude}" 
   end
