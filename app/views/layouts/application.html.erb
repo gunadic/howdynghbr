@@ -11,34 +11,43 @@
  <%= stylesheet_link_tag    "application" %>
  <%= csrf_meta_tags %>
 </head>
-
+<%= render './layouts/header' %>
 <body>
-  <%= render './layouts/header' %>
+  <div class="wrapper">
 
-  <% if flash[:notice] %>
+    <% if flash[:notice] %>
     <div data-alert class="alert-box">
       <div class="row">
         <%= flash[:notice] %>
       </div>    
       <a href="#" class="close">&times;</a>
     </div>
-  <% elsif flash[:alert] %>
+    <% elsif flash[:alert] %>
     <div data-alert class="alert-box">
       <div class="row">
         <%= flash[:alert] %>
       </div>    
       <a href="#" class="close">&times;</a>
     </div>
-  <% end %>
+    <% end %>
 
-  
+
 
     <%= yield %>
 
+    <div class="push"></div>
+  </div>
 
-  <%= javascript_include_tag "application" %>
-  <%= yield :scripts %>
+  <div id="footer">
+    <p>Footer content goes here.</p>
+  </div>
+
 </body>
+
+
+
+<%= javascript_include_tag "application" %>
+<%= yield :scripts %>
 </html>
 
 
