@@ -47,6 +47,10 @@ describe 'signing up for a meetup' do
     expect(page).to have_content(@temp.user_name)
     expect(page).to have_content(@temp.short_bio)
   end
+end
+
+describe 'canceling meetup participation' do
 
   
+
 end
