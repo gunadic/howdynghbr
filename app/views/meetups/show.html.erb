@@ -6,7 +6,7 @@
       <h3><%= @meetup.in_words %></h3>
       <h4><%= @meetup.description %></h4>
       <p>
-        <%= "#{pluralize(@meetup.participations.count, 'neighbor are')} in. Are you?" %>
+        <%= "#{pluralize(@meetup.participations.count, 'neighbor')} are in. Are you?" %>
       </p>
       <p>
         <%= form_for [@meetup, @participation] do |f| %>
@@ -14,8 +14,8 @@
         <% end %>
       </p>
     </div>
-    <%= render 'participants' %>
   </div>
+  <%= render 'participants' %>
   <div class="large-4 columns" id="detail_map">
     <%= gmaps({
         "map_options" => { "auto_zoom" => false, "zoom"=>17},
