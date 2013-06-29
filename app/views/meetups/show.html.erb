@@ -17,7 +17,7 @@
       <ul>
         <% @meetup.participations.each do |p| %>
           <% if(p.valid?) %>
-          <li><%= p.user.user_name if p.id!=nil %></li>
+          <li><%= link_to "#{p.user.user_name}", user_path(p.user) if p.id!=nil %></li>
           <% end %>
         <% end %>
       </ul>

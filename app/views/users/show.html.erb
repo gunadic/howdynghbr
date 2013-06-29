@@ -2,6 +2,8 @@
   <% if user_signed_in? %>
     <p>Profile goes here</p>
     <%= @user.user_name %>
+    <%= @user.tag_line %>
+    <%= @user.short_bio %>
   <% else %>
     <p> You aren't logged in!</p>
   <% end %>
