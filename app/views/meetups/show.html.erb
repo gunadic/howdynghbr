@@ -5,23 +5,16 @@
       <h3> Meet Deets </h3>
       <h3><%= @meetup.in_words %></h3>
       <h4><%= @meetup.description %></h4>
-      <p><%= "#{pluralize(@meetup.participations.count, 'other')} are in. Are you?" %></p>
+      <p>
+        <%= "#{pluralize(@meetup.participations.count, 'neighbor are')} in. Are you?" %>
+      </p>
       <p>
         <%= form_for [@meetup, @participation] do |f| %>
           <%= f.submit "I'm in!" %>
         <% end %>
       </p>
     </div>
-    <div class="panel">
-      <h5>Who'll be there:</h5>
-      <ul>
-        <% @meetup.participations.each do |p| %>
-          <% if(p.valid?) %>
-          <li><%= p.user.user_name if p.id!=nil %></li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
+    <%= render 'participants' %>
   </div>
   <div class="large-4 columns" id="detail_map">
     <%= gmaps({
