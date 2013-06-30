@@ -1,0 +1,13 @@
+<% if @meetup.user_signed_up?(current_user) %>
+  <h3> Er....</h3>
+  <h5> Change of plans? Can't go? It's ok. We wont hold it against you... </h5>
+  <p>
+
+  </p>
+<% else %>
+  <p>
+    <%= form_for [@meetup, @participation] do |f| %>
+      <%= f.submit "I'm in!" %>
+    <% end %>
+  </p>
+<% end %>

@@ -50,7 +50,23 @@ describe 'signing up for a meetup' do
 end
 
 describe 'canceling meetup participation' do
+  before(:each) do
+    FactoryGirl.create(:user)
+    @temp = FactoryGirl.create(:user)
+    login_as(@temp, :scope => :user)
+    @meetup = FactoryGirl.create(:meetup)
+    visit meetup_path(@meetup.id)
+    click_on("I'm in!")
+  end
 
+
+  it ", a user can cancel his participation in an event" do 
+    visit meetup_path(@meetup.id)
+    former_participants = @meetup.participations.length
+    expect(page).to_not have_content("I'm in!")
+    click_on("Nevermind...")
+    expect(@meetup.reload.participations.length).to eql(former_participants-1)
+  end
   
 
 end

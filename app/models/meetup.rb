@@ -43,11 +43,11 @@ class Meetup < ActiveRecord::Base
       around #{meetup_time.strftime("%I:%M%p")}."
   end
 
-  def whos_in
-    if self.participations.count == 0
-      "Nobody has signed up yet."
+  def user_signed_up?(user)
+    if((user.participations & participations).count == 0)
+      false
     else
-
+      true
     end
   end
 
