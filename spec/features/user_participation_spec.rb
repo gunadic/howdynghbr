@@ -65,8 +65,11 @@ describe 'canceling meetup participation' do
     former_participants = @meetup.participations.length
     expect(page).to_not have_content("I'm in!")
     click_on("Nevermind...")
+    save_and_open_page
     expect(@meetup.reload.participations.length).to eql(former_participants-1)
   end
+
+  it " a user's name is no longer listed after they cancel participation"
   
 
 end
