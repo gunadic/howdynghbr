@@ -58,16 +58,22 @@ describe 'canceling meetup participation' do
   it "a user can cancel his participation in an event" do
     login_as(user, :scope => :user)
     visit meetup_path(meetup)
-
     click_on("I'm in!")
     expect(meetup.user_signed_up?(user)).to be_true
     expect(page).to_not have_content("I'm in!")
-
     click_on("Nevermind...")
     expect(meetup.user_signed_up?(user)).to be_false
   end
 
-  it " a user's name is no longer listed after they cancel participation"
+  it " a user's name is no longer listed after they cancel participation" do
+    login_as(user, :scope => :user)
+    visit meetup_path(meetup)
+    click_on("I'm in!")
+    expect(meetup.user_signed_up?(user)).to be_true
+    expect(page).to_not have_content("I'm in!")
+    click_on("Nevermind...")
+    expect(page).to_not have_content(user.user_name)
+  end
 
 
 end

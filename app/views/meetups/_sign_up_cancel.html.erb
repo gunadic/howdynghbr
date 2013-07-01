@@ -1,8 +1,6 @@
 <% if @meetup.user_signed_up?(current_user) %>
   <h5> Change of plans? Can't go? It's ok. We wont hold it against you... </h5>
   <p>
-    <!-- NO MORE TEMP! plus im not sure you way works -->
-    <%# temp = (@meetup.participations & current_user.participations).first %>
     <%= link_to "Nevermind...", meetup_participation_path(@meetup, @meetup.participation_for(current_user)),
       :data => { :confirm => "Are you sure?" }, :method => :delete %>
   </p>
