@@ -35,7 +35,6 @@ describe 'signing up for a meetup' do
     # this seems like more of a unit test to me - test that you cant
     # create two for the same user in the participations spec
     visit meetup_path(meetup)
-    save_and_open_page
     click_on("I'm in!")
 
     # button wont be there so this fails
