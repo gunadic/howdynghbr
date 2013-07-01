@@ -5,7 +5,9 @@
       <h3> Meet Deets </h3>
       <h3><%= @meetup.in_words %></h3>
       <h4><%= @meetup.description %></h4>
+      <!-- TODO @meetup.participations.empty? -->
       <% if @meetup.participations.count == 0 %>
+        <!-- TODO does this branch of the logic tree ever get executmed?? -->
         <p>
           Nobody has signed up yet. Why don't you get the ball rolling?     
         </p>
