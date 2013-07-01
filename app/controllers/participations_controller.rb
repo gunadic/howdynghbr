@@ -15,15 +15,14 @@ class ParticipationsController < ApplicationController
   end
 
   def destroy
-    binding.pry
-    # Something smells here. 
+    # Something smells here.
     # This is referred to in _sign_up_cancel.html.erb
     # But somehow, the values for :meetup_id and :id are being mixed up
     # This hacktastic way works for now... but I dont like it.
-    @participation = Participation.find(params[:meetup_id])
+    @participation = Participation.find(params[:id])
     if @participation.destroy
       flash[:notice] = "You are no longer attending this meetup."
-      redirect_to meetup_path(params[:id])
+      redirect_to meetup_path(params[:meetup_id])
     else
       flash[:alert] = "Something went wrong."
     end

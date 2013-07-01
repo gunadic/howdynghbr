@@ -2,6 +2,7 @@
   <h5>Who'll be there:</h5>
   <ul>
     <% @meetup.participations.each do |p| %>
+      <!-- TODO why the conditional? -->
       <% if(p.valid?) %>
       <li><%= link_to "#{p.user.user_name}", user_path(p.user) if p.id!=nil %></li>
       <% end %>
