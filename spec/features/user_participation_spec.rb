@@ -31,15 +31,9 @@ describe 'signing up for a meetup' do
   end
 
   it "does not allow a user to create multiple participations" do
-    pending
-    # this seems like more of a unit test to me - test that you cant
-    # create two for the same user in the participations spec
     visit meetup_path(meetup)
     click_on("I'm in!")
-
-    # button wont be there so this fails
-    # click_on("I'm in!")
-    expect(page).to have_content("Hold your horses,")
+    expect(page).to_not have_content("I'm in!")
   end
 
   it ", attendees profile view pages are accessible through the details page" do
