@@ -35,14 +35,12 @@ describe 'signing up for a meetup' do
   it "does not allow a user to create multiple participations" do
     visit meetup_path(@meetup.id)
     click_on("I'm in!")
-    click_on("I'm in!")
-    expect(page).to have_content("Hold your horses,")
+    expect(page).to_not have_content("I'm in!")
   end
 
   it ", attendees profile view pages are accessible through the details page" do
     visit meetup_path(@meetup.id)
     click_on("I'm in!")
-    save_and_open_page
     click_on(@temp.user_name)
     expect(page).to have_content(@temp.user_name)
     expect(page).to have_content(@temp.short_bio)
@@ -65,11 +63,14 @@ describe 'canceling meetup participation' do
     former_participants = @meetup.participations.length
     expect(page).to_not have_content("I'm in!")
     click_on("Nevermind...")
-    save_and_open_page
     expect(@meetup.reload.participations.length).to eql(former_participants-1)
   end
 
-  it " a user's name is no longer listed after they cancel participation"
+  it " a user's name is no longer listed after they cancel participation" do
+    visit meetup_path(@meetup)
+    expect(page).to have_content(@temp.user_name)
+    click_on("Nevermind...")
+    expect(page).to_not have_content(@temp.user_name)
+  end
   
-
 end

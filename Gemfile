@@ -29,6 +29,7 @@ group :test, :development do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy'
+  gem "better_errors"
 end
 
 group :test do

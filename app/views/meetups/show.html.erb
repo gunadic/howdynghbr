@@ -7,7 +7,7 @@
       <h4><%= @meetup.description %></h4>
       <% if @meetup.participations.count == 0 %>
         <p>
-          "Nobody has signed up yet. Why don't you get the ball rolling?"      
+          Nobody has signed up yet. Why don't you get the ball rolling?     
         </p>
       <% else %>
         <%= "#{pluralize(@meetup.participations.count, 'other')} are going." %>

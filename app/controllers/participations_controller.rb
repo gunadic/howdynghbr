@@ -15,7 +15,6 @@ class ParticipationsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     # Something smells here. 
     # This is referred to in _sign_up_cancel.html.erb
     # But somehow, the values for :meetup_id and :id are being mixed up
