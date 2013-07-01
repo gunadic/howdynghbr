@@ -7,7 +7,7 @@ class Meetup < ActiveRecord::Base
   belongs_to :location, inverse_of: :meetups
   acts_as_gmappable :process_geocoding => false
 
-  attr_accessible :category_id, :description, :is_past, :meet_up_time, :user_id, 
+  attr_accessible :category_id, :description, :is_past, :meet_up_time, :user_id,
     :meetup_date, :meetup_time, :neighborhood_id, :location_id
 
   validates_presence_of :user
@@ -38,21 +38,28 @@ class Meetup < ActiveRecord::Base
   end
 
   def in_words
-    "#{user.user_name} wants to #{category.name} 
+    "#{user.user_name} wants to #{category.name}
       at #{location.name} in #{neighborhood.name} on #{meetup_date.strftime("%m/%d")}
       around #{meetup_time.strftime("%I:%M%p")}."
   end
 
-  def whos_in
-    if self.participations.count == 0
-      "Nobody has signed up yet."
-    else
+  # TODO I'll bet if you unit test this it wont work the way you expect
+  # i changed it because i wanted it to work but you need to unit test it
+  def user_signed_up?(user)
+    participations.where(user_id: user).present?
+    # if((user.participations & participations).count == 0)
+    #   false
+    # else
+    #   true
+    # end
+  end
 
-    end
+  def participation_for(user)
+    participations.where(user_id: user).first
   end
 
   def gmaps4rails_address
-    "#{location.street_address}, #{location.city}, #{location.state}, #{self.location.latitude}, #{self.location.longitude}" 
+    "#{location.street_address}, #{location.city}, #{location.state}, #{self.location.latitude}, #{self.location.longitude}"
   end
 
 
