@@ -18,8 +18,8 @@ describe Neighborhood do
   end
 
   it " name must be unique in a city/state combo" do
-    FactoryGirl.create(:neighborhood)
-    temp = FactoryGirl.build(:neighborhood)
+    temp1 = FactoryGirl.create(:neighborhood)
+    temp = FactoryGirl.build(:neighborhood, name: temp1.name )
     expect(temp).to_not be_valid
   end
 

@@ -1,8 +1,9 @@
 class MeetupsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:index]
 
   def index
-    @meetups = Meetup.order("id").includes(:location)
+    @q = Meetup.search(params[:q])
+    @meetups = @q.result(:distinct => true)
     @markers = ""
     @meetups.each do |meetup| 
       @markers += meetup.location.to_gmaps4rails
