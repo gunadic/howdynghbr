@@ -10,12 +10,18 @@ require 'spec_helper'
 
 
 describe 'searching from main page' do
-
+  let!(:hood1){ FactoryGirl.create(:neighborhood)}
+  let!(:hood2){ FactoryGirl.create(:neighborhood)}
+  # let(:meetup1){ FactoryGirl.create(:meetup, :neighborhood => hood1)}
+  # let(:meetup2){ FactoryGirl.create(:meetup, :neighborhood => hood2)}
   it ": a user can search from the main page of the app." do
+    meetup1 = FactoryGirl.create(:meetup, :neighborhood => hood1)
+    binding.pry
+    meetup2 = FactoryGirl.create(:meetup, :neighborhood => hood2)
     visit '/'
-    fill_in 'Search', with: "Coolidge Corner"
-    click_in 'Search'
-    expect(page).to have_content("Meetups")
+    select(hood1.name, from: "Neighborhood:")
+    click_on 'Search'
+    expect(page).to have_content(meetup1.description)
   end
 
 end
