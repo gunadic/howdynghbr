@@ -9,6 +9,6 @@ FactoryGirl.define do
     meetup_date Time.now
     meetup_time Time.now 
     is_past false
-    description "MyText"
+    description "This is a test meetup."
   end
 end
