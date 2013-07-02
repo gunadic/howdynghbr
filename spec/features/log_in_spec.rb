@@ -13,6 +13,7 @@ require 'spec_helper'
 describe "signing in" do 
 
   it "allows users to sign in with sign-in credentials" do
+    visit '/'
     visit '/users/sign_up'
     fill_in 'User name', with:"test_user"
     fill_in 'First name', with:"test"

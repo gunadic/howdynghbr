@@ -8,7 +8,7 @@ class Meetup < ActiveRecord::Base
   acts_as_gmappable :process_geocoding => false
 
   attr_accessible :category_id, :description, :is_past, :meet_up_time, :user_id,
-    :meetup_date, :meetup_time, :neighborhood_id, :location_id
+    :meetup_date, :meetup_time, :neighborhood, :location_id
 
   validates_presence_of :user
   validates_presence_of :category

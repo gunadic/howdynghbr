@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :neighborhood do
-    name "Coolidge Corner"
+    sequence(:name) {|n| "Neighborhood #{n}"}
     city "Boston"
     state "MA"
     coordinates "somewhere"

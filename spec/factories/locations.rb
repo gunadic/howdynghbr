@@ -3,7 +3,7 @@
 FactoryGirl.define do
 
   sequence :street_address do |n|
-    "#{n} Summer Street"
+    "#{n} Harvard St."
   end
 
   sequence :name do |n|
@@ -11,11 +11,11 @@ FactoryGirl.define do
   end
 
   factory :location do
-    name :name
-    street_address :street_address
-    city "Boston"
+    name 
+    street_address
+    city "Brookline"
     state "MA"
     zip "02445"
-    neighborhood_id 1
+    neighborhood
   end
 end

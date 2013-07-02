@@ -2,20 +2,12 @@
 
 FactoryGirl.define do
 
-  sequence :user_name do |n|
-    "user#{n}"
-  end
-
-  sequence :email do |n|
-    "user#{n}@example.com"
-  end
-
   factory :user do
-    user_name 
+    sequence(:user_name) {|m| "user_#{m}"}
     first_name "bill"
     last_name "smith"
     password "1234578a"
-    email
+    sequence(:email) {|n| "email#{n}@factory.com" }
     tag_line "Howdy y'all!"
     short_bio "MyText"
     position "MyText"
