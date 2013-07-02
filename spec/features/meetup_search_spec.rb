@@ -12,16 +12,31 @@ require 'spec_helper'
 describe 'searching from main page' do
   let!(:hood1){ FactoryGirl.create(:neighborhood)}
   let!(:hood2){ FactoryGirl.create(:neighborhood)}
-  # let(:meetup1){ FactoryGirl.create(:meetup, :neighborhood => hood1)}
-  # let(:meetup2){ FactoryGirl.create(:meetup, :neighborhood => hood2)}
+  let!(:meetup1){ FactoryGirl.create(:meetup, :neighborhood => hood1)}
+  let!(:meetup2){ FactoryGirl.create(:meetup, :neighborhood => hood2)}
   it ": a user can search from the main page of the app." do
-    meetup1 = FactoryGirl.create(:meetup, :neighborhood => hood1)
-    binding.pry
-    meetup2 = FactoryGirl.create(:meetup, :neighborhood => hood2)
+
     visit '/'
     select(hood1.name, from: "Neighborhood:")
     click_on 'Search'
     expect(page).to have_content(meetup1.description)
+  end
+
+  it ": does not include meetups outside of the neighborhood" do
+    visit '/'
+    select(hood1.name, from: "Neighborhood:")
+    click_on 'Search'
+    expect(page).to_not have_content(meetup2.description)
+  end
+
+  it "allows a user to switch filters on the meetup index page" do
+    visit '/'
+    select(hood1.name, from: "Neighborhood:")
+    click_on 'Search'
+    expect(page).to have_content(meetup1.description)
+    select(hood2.name, from: "Neighborhood:")
+    click_on 'Search'
+    expect(page).to have_content(meetup2.description)
   end
 
 end

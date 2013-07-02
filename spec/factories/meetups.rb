@@ -9,6 +9,6 @@ FactoryGirl.define do
     meetup_date Time.now
     meetup_time Time.now 
     is_past false
-    description "This is a test meetup."
+    sequence(:description) { |n| "This is test meetup number #{n}."}
   end
 end

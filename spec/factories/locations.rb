@@ -11,8 +11,8 @@ FactoryGirl.define do
   end
 
   factory :location do
-    name :name
-    street_address :street_address
+    name 
+    street_address
     city "Brookline"
     state "MA"
     zip "02445"

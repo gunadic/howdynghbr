@@ -1,11 +1,11 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  sequence :cat_name do |n|
-    "Category #{n}"
-  end
+
   factory :category do
-    name :cat_name
+    sequence :name do |n|
+      "Category #{n}"
+    end
     parent_id 1
   end
 end
