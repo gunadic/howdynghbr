@@ -5,6 +5,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'factory_girl'
 gem 'geocoder'
+
 gem 'inherited_resources'
 gem 'devise'
 gem 'sextant'
@@ -34,4 +35,5 @@ end
 group :test do
   gem "nyan-cat-formatter"
   gem 'shoulda-matchers'
+  # gem 'poltergeist'
 end

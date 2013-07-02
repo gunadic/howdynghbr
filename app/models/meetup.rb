@@ -43,15 +43,8 @@ class Meetup < ActiveRecord::Base
       around #{meetup_time.strftime("%I:%M%p")}."
   end
 
-  # TODO I'll bet if you unit test this it wont work the way you expect
-  # i changed it because i wanted it to work but you need to unit test it
   def user_signed_up?(user)
     participations.where(user_id: user).present?
-    # if((user.participations & participations).count == 0)
-    #   false
-    # else
-    #   true
-    # end
   end
 
   def participation_for(user)
