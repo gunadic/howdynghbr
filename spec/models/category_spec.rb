@@ -12,9 +12,9 @@ describe Category do
   end
 
   it "can't have the same name as another category" do
-    FactoryGirl.create(:category)
-    temp = FactoryGirl.build(:category)
-    expect(temp.valid?).to eql(false)
+    temp = FactoryGirl.create(:category)
+    temp2 = FactoryGirl.build(:category, :name => temp.name)
+    expect(temp2.valid?).to eql(false)
   end
 
 end
