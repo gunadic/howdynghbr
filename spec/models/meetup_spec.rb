@@ -32,4 +32,5 @@ describe Meetup do
 
   end
 
+
 end
