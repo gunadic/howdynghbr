@@ -76,7 +76,7 @@ end
 load_from_csv
 @locations.each do |l|
   hood = Neighborhood.find_by_name(l.delete(:neighborhood))
-  if Location.find_by_street_address(l[:street_address]).nil?
+  if hood.locations.find_by_street_address(l[:street_address]).nil?
     loc = Location.new(l)
     loc.neighborhood = hood
     loc.save
