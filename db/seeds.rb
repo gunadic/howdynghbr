@@ -8,15 +8,12 @@
 
 require 'csv'
 
-Category.destroy_all
-Neighborhood.destroy_all
-Location.destroy_all
-Meetup.destroy_all
 
+@new_records = 0
 
 boston_hoods = ["Allston/Brighton","Back Bay","Bay Village","Beacon Hill",
   "Charlestown","Chinatown","Dot","Downtown","Eastie","Fenway","Hyde Pahk",
-  "JP","Mattapan","Mission Hill","North End","Roslindale","Roxbury","Southie",
+  "JP", "Leather District","Mattapan","Mission Hill","North End","Roslindale","Roxbury","Southie",
   "South End","West End","West Roxbury"]
 
 cambridge_hoods = ["Aggasiz","Area 2/MIT","Area Four","Cambridgeport","Cambridge Highlands",
@@ -44,32 +41,49 @@ brookline_hoods = ["Brookline Hills","Brookline Village","Chestnut Hill","Coolid
     end
   end
 
-
-
 category_array.each do |c|
-  Category.create(:name => c)
+  if Category.find_by_name(c).nil?
+    Category.create(:name => c)
+    puts "#{c} category created"
+    @new_records+=1
+  end
 end
 
 boston_hoods.each do|hood|
-  Neighborhood.create(:name => hood, :city => "Boston", :state => "MA")
-
+  if Neighborhood.where(:city => "Boston").find_by_name(hood).nil?
+    Neighborhood.create(:name => hood, :city => "Boston", :state => "MA")
+    puts "#{hood}, neighborhood created"
+    @new_records+=1
+  end
 end
 
 cambridge_hoods.each do|hood|
-  Neighborhood.create(:name => hood, :city => "Cambridge", :state => "MA")
+  if Neighborhood.where(:city => "Cambridge").find_by_name(hood).nil?
+    Neighborhood.create(:name => hood, :city => "Cambridge", :state => "MA")
+    puts "#{hood}, neighborhood created"
+    @new_records+=1
+  end
 end
 
 brookline_hoods.each do|hood|
-  Neighborhood.create(:name => hood, :city => "Brookline", :state => "MA")
+  if Neighborhood.where(:city => "Brookline").find_by_name(hood).nil?
+    Neighborhood.create(:name => hood, :city => "Brookline", :state => "MA")
+    puts "#{hood}, neighborhood created"
+    @new_records+=1
+  end
 end
 
 load_from_csv
 @locations.each do |l|
   hood = Neighborhood.find_by_name(l.delete(:neighborhood))
-  loc = Location.new(l)
-  loc.neighborhood = hood
-  loc.save
+  if Location.find_by_street_address(l[:street_address]).nil?
+    loc = Location.new(l)
+    loc.neighborhood = hood
+    loc.save
+    puts "#{loc[:name]} in #{hood.name} created"
+    @new_records+=1
+  end
 end
 
-
+puts "#{@new_records} new records created."
 
