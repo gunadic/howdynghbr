@@ -37,7 +37,7 @@ class MeetupsController < ApplicationController
   protected
 
   def swap_brackets(string)
-    string.gsub!(/\]\[/,",")
+      string.gsub!(/\]\[/,",")
   end
 
 end
