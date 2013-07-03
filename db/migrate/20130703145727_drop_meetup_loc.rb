@@ -1,6 +1,10 @@
 class DropMeetupLoc < ActiveRecord::Migration
-  def change
+  def up
     drop_table :meetup_locs
+  end
+
+  def down
+    raise ActiveRecord::IrreversibleMigration
   end
 
 end
