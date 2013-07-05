@@ -29,7 +29,7 @@ class MeetupsController < ApplicationController
       flash[:notice] = "Meetup succesfully created!"
       redirect_to meetup_path(@meetup)
     else
-      flash[:notice] = "Something went wrong!"
+      flash[:notice] = "The Meetup was not succesfully created. Please try again."
       redirect_to new_meetup_path(@meetup)
     end
   end
