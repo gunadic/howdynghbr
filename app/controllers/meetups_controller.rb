@@ -3,7 +3,7 @@ class MeetupsController < ApplicationController
 
   def index
     @q = Meetup.search(params[:q])
-    @meetups = @q.result(:distinct => true)
+    @meetups = @q.result(:distinct => true).select {|meetup| !meetup.past?}
     @markers = ""
     @meetups.each do |meetup| 
       @markers += meetup.location.to_gmaps4rails

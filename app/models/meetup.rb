@@ -47,6 +47,10 @@ class Meetup < ActiveRecord::Base
     participations.where(user_id: user).present?
   end
 
+  def past?
+    self.meetup_date.past?
+  end
+
   def participation_for(user)
     participations.where(user_id: user).first
   end
