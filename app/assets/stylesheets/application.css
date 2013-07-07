@@ -42,3 +42,18 @@ html, body {
 #footer {
   background-color: black;
 }
+
+#search_panel {
+  margin: auto;
+  background-color: black;
+  border: 0;
+  margin-top: 25%;
+  left: 50%;
+  opacity: .7;
+  width: 696px;
+  height: 230px;
+}
+
+#search_panel  form {
+  opacity: 1;
+}
