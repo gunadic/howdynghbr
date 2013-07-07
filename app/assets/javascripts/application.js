@@ -22,6 +22,7 @@
 $(document).foundation();
 $(function(){
   $(".meetup_location").hide();
+  $("#meetup_search_id").chosen();
   $("#meetup_category_id").chosen();
   $("#meetup_neighborhood_id").chosen().change(function(e) {
     var id = $(e.target).val();
@@ -44,7 +45,7 @@ $(function(){
     var options = $("#meetup_location_id");
     $("option",options).remove();
     options.append($("<option />").val("").text(""));
-    _.each(data, function(d){ 
+    _.each(data, function(d){
       options.append($("<option />").val(d.id).text(d.name));
     });
     // options.chosen();
