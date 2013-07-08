@@ -52,3 +52,8 @@ html, body {
   width: 696px;
   height: 230px;
 }
+
+#search_panel_header {
+  text-align: center;
+}
+
