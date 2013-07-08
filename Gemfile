@@ -30,6 +30,7 @@ group :test, :development do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy'
+  gem 'dotenv-rails'
 end
 
 group :test do
