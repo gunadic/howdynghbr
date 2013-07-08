@@ -3,13 +3,17 @@
     <div class="panel" id="search_panel">
       <h3> Pick your neighborhood: </h3>
       <%= search_form_for @search do |f| %>
-        <%=
-          f.select :neighborhood_name_eq,
-          options_for_select(
-                @hoods
-              )
-        %>
-        <%=f.submit %>
+        <div class="large-8 columns">
+          <%=
+            f.select :neighborhood_name_eq,
+            options_for_select(
+                  @hoods
+                )
+          %>
+        </div>
+        <div class="large-4 columns">
+          <%=f.submit :class => 'button' %>
+        </div>
       <%end %>
     </div>
 
