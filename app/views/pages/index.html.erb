@@ -1,15 +1,19 @@
-
-  <div class="row">
-    
-    <div class="panel" id="search_panel">
-      <h3> Pick your neighborhood: </h3>
+<div class="row">
+  <div class="panel" id="search_panel">
+    <div id="search_panel_content">
+      <h3 id="search_panel_header"> Meet your neighbors: </h3>
       <%= search_form_for @search do |f| %>
-        <%=f.select :neighborhood_name_eq,
-          options_for_select(Neighborhood.all.collect {|n| [n.name, n.name]})
+      <div class="large-8 columns">
+        <%=
+          f.select :neighborhood_name_eq,
+          options_for_select(@hoods)
         %>
-        <%=f.submit %>
+      </div>
+      <div class="large-4 columns">
+        <%=f.submit :class => 'small button' %>
+      </div>
       <%end %>
     </div>
-
   </div>
+</div>
 

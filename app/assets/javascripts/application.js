@@ -50,7 +50,8 @@ $(function(){
     });
     // options.chosen();
     $(".meetup_location").show();
-  };
+  }
   $("#meetup_meetup_time").pickatime({interval: 60});
   $("#meetup_meetup_date").pickadate({min: true, max: 14});
+  $("#q_neighborhood_name_eq").chosen();
 });
