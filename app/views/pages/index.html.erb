@@ -1,10 +1,10 @@
-
   <div class="row">
     
     <div class="panel" id="search_panel">
       <h3> Pick your neighborhood: </h3>
       <%= search_form_for @search do |f| %>
-        <%=f.select :neighborhood_name_eq,
+        <%=
+          f.select :neighborhood_name_eq,
           options_for_select(Neighborhood.all.collect {|n| [n.name, n.name]})
         %>
         <%=f.submit %>
