@@ -1,10 +1,14 @@
-<div class="row">
-  <% if user_signed_in? %>
-    <p>Profile goes here</p>
-    <%= @user.user_name %>
-    <%= @user.tag_line %>
-    <%= @user.short_bio %>
-  <% else %>
-    <p> You aren't logged in!</p>
-  <% end %>
+<div class="profile_content">
+  <div class="row" id="profiles">
+    <div class="large-6 column" id="profile_inner">
+
+      <h3><%= @user.user_name %></h3>
+      <h4><%= "#{@user.first_name} #{@user.last_name}"%> </h4>
+      <h5><%= "#{@user.tag_line}"%> </h5>
+      <p> <%= @user.short_bio %> </p>
+    </div>
+  </div>
+</div>
+<div class="row" id="meetups">
+
 </div>

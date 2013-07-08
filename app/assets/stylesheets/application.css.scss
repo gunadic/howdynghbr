@@ -9,12 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require foundation_and_overrides
  *= require pickadate/classic
  *= require pickadate/classic.date
  *= require pickadate/classic.time
  *= require_tree .
  */
+@import 'foundation_and_overrides';
 
 #detail-map{
   height: 200px;
@@ -55,5 +55,13 @@ html, body {
 
 #search_panel_header {
   text-align: center;
+}
+
+.profile_content{
+  @include clearfix;
+  background-color: white;
+  max-width: 960px;
+  margin: 0% auto;
+  padding: 20px;
 }
 
