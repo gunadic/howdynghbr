@@ -5,7 +5,9 @@
       <%= search_form_for @search do |f| %>
         <%=
           f.select :neighborhood_name_eq,
-          options_for_select(Neighborhood.all.collect {|n| [n.name, n.name]})
+          options_for_select(
+                @hoods
+              )
         %>
         <%=f.submit %>
       <%end %>
