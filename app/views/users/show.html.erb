@@ -9,6 +9,19 @@
     </div>
   </div>
 </div>
-<div class="row" id="meetups">
+<div class="user_stats">
+  <div class="row">
+    <h6><%= "Meetups Created: #{@user.meetups.count}" %></h6>
+    <h6><%= "Meetups Attended: #{@user.participations.count}" %></h6>
+  </div>
+</div>
+<div class="row" id="past_attended">
+  <h4>Past Meetups Attended:</h4>
+    <% @user.past_attended.each do |n| %>
+    <p><%= "#{n.in_words_past}" %></p>
+    <%end%>
 
+</div>
+<div class="row" id="meetups">
+  
 </div>
