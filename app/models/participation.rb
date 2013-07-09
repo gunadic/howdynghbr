@@ -9,4 +9,8 @@ class Participation < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :meetup_id
 
+  def user_name
+  	user.user_name
+  end
+
 end
