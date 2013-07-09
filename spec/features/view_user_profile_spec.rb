@@ -15,7 +15,8 @@ describe "viewing a user profile" do
   let!(:meetup1){FactoryGirl.create(:meetup, meetup_date: Time.now)}
   let!(:meetup2){FactoryGirl.create(:meetup, 
     :meetup_date => DateTime.new(2013, 6, 1))}
-  let(:meetup3){FactoryGirl.create(:meetup, user: user1)}
+  let!(:meetup3){FactoryGirl.create(:meetup, user: user1)}
+  let!(:meetup4){FactoryGirl.create(:meetup, user: user1)}
 
   it "displays all of a user's information" do
     visit user_path(user1)
@@ -37,10 +38,17 @@ describe "viewing a user profile" do
     temp = Participation.new(user: user1, meetup: meetup2)
     temp.save
     visit user_path(user1)
-    expect(page).to have_content("Past Meetups")
+    expect(page).to have_content("Meetups #{user1.user_name} attended:")
     expect(page).to have_content(meetup2.in_words_past)
     expect(page).to_not have_content(meetup1.in_words_past)
+  end
 
+  it "contains a list of meetups the user has created" do
+    pending
+    visit user_path(user1)
+    expect(page).to have_content("Meetups #{user1.user_name} hosted:")
+    expect(page).to have_content(meetup3.in_words)
+    expect(page).to have_content(meetup4.in_words)
   end
   
 end
