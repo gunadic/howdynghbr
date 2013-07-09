@@ -2,25 +2,24 @@
 
 <div class="row">
   <div class="panel">
-  <fieldset>
-<%= simple_form_for @meetup do |f|%>
-  <%= f.error_notification %>
-  <%= f.input :meetup_date, :as => :string, :required => true, :label => "Date", input_html: {class: 'datepicker'} %>
-  <%= f.input :meetup_time, :as => :string, :required => true, :label => "Time", input_html: {class: 'datepicker'} %>
-  <br/>
-  <%= f.association :category, :required => true, :label => "I want to..." %>
-  <br/>
-  <%= f.association :neighborhood, :required => true %>
-  <br/>
-  <%= f.association :location, collection: [], :required => true%>
-  <br/>
-  <%= f.input :description, :required => true %>
+    <fieldset>
+      <%= simple_form_for @meetup do |f|%>
+      <%= f.error_notification %>
+      <%= f.input :meetup_date, :as => :string, :required => true, :label => "Date", input_html: {class: 'datepicker'} %>
+      <%= f.input :meetup_time, :as => :string, :required => true, :label => "Time", input_html: {class: 'datepicker'} %>
+        <br/>
+        <%= f.association :category, :required => true, :label => "I want to..." %>
+        <br/>
+        <%= f.association :neighborhood, :required => true %>
+        <br/>
+        <%= f.association :location, collection: [], :required => true%>
+        <br/>
+        <%= f.input :description, :required => true %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+      <div class="form-actions">
+      <%= f.button :submit %>
+      </div>
+    </fieldset>
+  <% end %>
   </div>
-
-</fieldset>
-<% end %>
-</div>
 </div>

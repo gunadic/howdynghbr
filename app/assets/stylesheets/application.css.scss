@@ -69,4 +69,10 @@ html, body {
   list-style: none;
 }
 
+.devise_form_div {
+  @include clearfix;
+  margin: 0% auto;
+  padding: 20px;
+  background-color: white;
+}
 
