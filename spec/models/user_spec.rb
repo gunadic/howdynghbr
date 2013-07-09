@@ -1,15 +1,11 @@
 require 'spec_helper'
 require 'pry'
 describe User do
-
-  describe "shoulda tests" do
     it{ should have_many(:meetups)}
     it{ should have_many(:participations)}
     it{ should have_many(:reviews).through(:participations)}
     it{ should have_one(:favorite_category)}
     it{ should have_one(:category).through(:favorite_category)}
-  end
-
 
   it "must have a unique email" do
     user1 = FactoryGirl.create(:user)

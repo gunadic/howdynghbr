@@ -43,8 +43,16 @@ class Meetup < ActiveRecord::Base
       around #{meetup_time.strftime("%I:%M%p")}."
   end
 
-  def user_signed_up?(user)
-    participations.where(user_id: user).present?
+  def in_words_past
+    "#{category.name} at #{location.name} in #{neighborhood.name}"
+  end
+
+  def user_signed_up?(input_user)
+    participations.where(user_id: input_user).present?
+  end
+
+  def is_host?(input_user)
+    input_user.user_id == :user.user_id
   end
 
   def past?
