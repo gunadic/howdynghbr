@@ -1,11 +1,11 @@
 <div class="panel" id="participants">
   <h5>Who'll be there:</h5>
-  <ul>
+  <ul id="attendees">
     <% @meetup.participations.each do |p| %>
-      <!-- TODO why the conditional? -->
-      <% if(p.valid?) %>
-      <li><%= link_to "#{p.user.user_name}", user_path(p.user) if p.id!=nil %></li>
-      <% end %>
+    	<li>
+    		<%= link_to image_tag(avatar_url(p.user)) + " #{p.user_name}", 
+    		user_path(p.user) if p.id!=nil %>
+    	</li>
     <% end %>
   </ul>
 </div>

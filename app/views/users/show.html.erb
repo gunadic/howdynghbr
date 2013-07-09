@@ -1,5 +1,8 @@
 <div class="profile_content">
   <div class="row" id="profiles">
+    <div class="large-4 column" id="user_gravatar">
+      <%= image_tag avatar_url(@user) %>
+    </div>
     <div class="large-6 column" id="profile_inner">
 
       <h3><%= @user.user_name %></h3>
