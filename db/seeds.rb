@@ -14,7 +14,7 @@ require 'csv'
 boston_hoods = ["Allston/Brighton","Back Bay","Bay Village","Beacon Hill",
   "Charlestown","Chinatown","Dot","Downtown","Eastie","Fenway","Hyde Pahk",
   "JP", "Leather District","Mattapan","Mission Hill","North End","Roslindale","Roxbury","Southie",
-  "South End","West End","West Roxbury"]
+  "South End","Waterfront","West End","West Roxbury"]
 
 cambridge_hoods = ["Aggasiz","Area 2/MIT","Area Four","Cambridgeport","Cambridge Highlands",
   "East Cambridge","Mid-Cambridge","Neighborhood Nine","North Cambridge","Riverside",
