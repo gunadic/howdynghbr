@@ -36,5 +36,4 @@ end
 group :test do
   gem "nyan-cat-formatter"
   gem 'shoulda-matchers'
-  # gem 'poltergeist'
 end
