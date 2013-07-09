@@ -22,4 +22,15 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
 
+
+  def past_attended
+    past_attended = []
+    self.participations.each do |p|
+      if p.meetup.past?
+        past_attended << p.meetup
+      end
+    end
+    past_attended
+  end
+
 end

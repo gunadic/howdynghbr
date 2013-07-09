@@ -18,7 +18,7 @@ boston_hoods = ["Allston/Brighton","Back Bay","Bay Village","Beacon Hill",
 
 cambridge_hoods = ["Aggasiz","Area 2/MIT","Area Four","Cambridgeport","Cambridge Highlands",
   "East Cambridge","Mid-Cambridge","Neighborhood Nine","North Cambridge","Riverside",
-  "Wellington-Harrington"]
+  "Wellington-Harrington", "Harvard Square","Union Square","Kendall Square","Porter Square","Davis Square"]
 
 brookline_hoods = ["Brookline Hills","Brookline Village","Chestnut Hill","Coolidge Corner",
   "Longwood","North Brookline","Pill Hill","Washington Square"]
