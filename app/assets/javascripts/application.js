@@ -54,4 +54,5 @@ $(function(){
   $("#meetup_meetup_time").pickatime({interval: 60});
   $("#meetup_meetup_date").pickadate({min: true, max: 14});
   $("#q_neighborhood_name_eq").chosen();
+  $("#q_category_id_eq").chosen();
 });

@@ -32,7 +32,6 @@ class Location < ActiveRecord::Base
     result = "<ul>"
     meetups.each do |meetup|
       result += "<li><a href=#{meetup_path(meetup)}><h4>#{meetup.in_words}</h4></a></li>"
-
     end
     result += "</ul>"
     return result

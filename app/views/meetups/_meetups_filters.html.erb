@@ -1,0 +1,32 @@
+  <div class="devise_form_div">
+    <div class="fieldset">
+   <div class="row">
+  <%= search_form_for @q do |f| %>
+     <div class="large-4 columns">
+    <%=f.label :neighborhood_name_eq, "Neighborhood" %>
+
+
+      <%=f.select :neighborhood_name_eq, 
+        options_for_select(
+          Neighborhood.all.collect {|n| [n.name, n.name]}.unshift(["Select a neighborhood", nil]),
+          selected: params[:q].try(:[],:neighborhood_name_eq),
+          include_blank: true
+        )
+      %>
+    </div>
+    <div class="large-4 columns">
+    <%=f.label :category_id_eq, "Category" %>
+
+
+    <%=f.select :category_id_eq,
+      Category.all.collect {|c| [c.name, c.id]},
+      {include_blank: true}
+      %>
+    </div>
+    <div class="large-1 columns">
+      <%=f.submit%>
+  </div>
+  <% end %>
+</div>
+  </div>
+</div>

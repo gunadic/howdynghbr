@@ -8,8 +8,6 @@
         <th>Tag Line</th>
       </tr>
     </thead>
-
-
     <% if @users.first==nil%>
       <p>No users are registered.</p>
     <%else%>
@@ -20,7 +18,7 @@
         <td><%= user.email %></td>
         <td><%= user.tag_line %></td>
       </tr>
-      <% end %>s
+      <% end %>
     <% end %>
 
   </table>
