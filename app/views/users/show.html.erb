@@ -12,21 +12,23 @@
     </div>
   </div>
 </div>
+<div class="row">
 <div class="user_stats">
-  <div class="row">
+  <div class="devise_form_div">
     <h6><%= "Meetups Created: #{@user.meetups.count}" %></h6>
     <h6><%= "Meetups Attended: #{@user.participations.count}" %></h6>
   </div>
 </div>
-<div class="row" id="past_attended">
+<div class="panel" id="past_attended">
   <h4><%= "Meetups #{@user.user_name} attended:" %></h4>
     <% @user.past_attended.each do |n| %>
     <p><%= "#{n.in_words_past}" %></p>
     <%end%>
 </div>
-<div class="row" id="meetups_hosted">
+<div class="panel" id="meetups_hosted">
   <h4><%= "Meetups #{@user.user_name} hosted:"%></h4>
     <% @user.meetups.each do |m| %>
     <p><%= "#{m.in_words}" %></p>
     <% end %>
+</div>
 </div>
