@@ -1,5 +1,5 @@
 require 'spec_helper'
-include Warden::Test::Helpers
+# include Warden::Test::Helpers
 
 
 # As a user,
@@ -63,7 +63,7 @@ describe 'creating a new meetup' do
 
   it " a newly created meetup displays its content on its detail page" do
     temp = FactoryGirl.create(:meetup)
-    login_as(temp.user, :scope => :user)
+    sign_in_as temp.user #login_as(temp.user, :scope => :user)
     visit meetup_path(temp)
     expect(page).to have_content(temp.location.name)
   end

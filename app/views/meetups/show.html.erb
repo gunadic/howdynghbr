@@ -5,7 +5,7 @@
       <h3> Meet Deets </h3>
       <h3><%= @meetup.in_words %></h3>
       <h4><%= @meetup.description %></h4>
-      <% if @meetup.participations.empty? == 0 %>
+      <% if @meetup.participations.empty? %>
         <p>
           "Nobody has signed up yet. Why don't you get the ball rolling?"
         </p>
