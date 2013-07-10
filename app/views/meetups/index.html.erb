@@ -1,27 +1,7 @@
+<%= render 'meetups_filters' %>
 <%= add_map_for(@markers) %>
 
       <div class="row">
-        <div class="panel">
-          <div class="fieldset">
-            <h5>Filters:</h5>
-        <%= search_form_for @q do |f| %>
-          <%=f.label :neighborhood_name_eq, "Neighborhood: " %>
-            <%=f.select :neighborhood_name_eq, 
-              options_for_select(
-                Neighborhood.all.collect {|n| [n.name, n.name]},
-                selected: params[:q].try(:[],:neighborhood_name_eq)
-              )
-            %>
-          <%=f.label :category_id_eq, "Category: " %>
-          <%=f.select :category_id_eq,
-            Category.all.collect {|c| [c.name, c.id]},
-            {include_blank: true}
-            %>
-          <%=f.submit%>
-        <% end %>
-        </div>
-      </div>
-        <h4>Upcoming Meetups.</h4>
         <table>
           <thead>
             <tr>
