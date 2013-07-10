@@ -1,4 +1,5 @@
 require 'spec_helper'
+# include Warden::Test::Helpers
 
 # As a user,
 # I want to have a profile page,
@@ -18,6 +19,11 @@ describe "viewing a user profile" do
   let!(:meetup3){FactoryGirl.create(:meetup, user: user1)}
   let!(:meetup4){FactoryGirl.create(:meetup, user: user1)}
 
+  before(:each) do
+    sign_in_as user1
+    # login_as(user1, :scope => :user)
+  end
+
   it "displays all of a user's information" do
     visit user_path(user1)
     expect(page).to have_content(user1.user_name)
@@ -30,8 +36,8 @@ describe "viewing a user profile" do
   it "displays a small section about the user's site usage" do
     meetup3
     visit user_path(user1)
-    expect(page).to have_content("Meetups Created: #{user1.meetups.count}")
-    expect(page).to have_content("Meetups Attended: #{user1.participations.count}")
+    expect(page).to have_content("Meetups Created #{user1.meetups.count}")
+    expect(page).to have_content("Meetups Attended #{user1.participations.count}")
   end
 
   it "contains a list of the meetups the user has attended" do
